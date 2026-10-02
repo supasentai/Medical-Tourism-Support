@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
@@ -7,15 +7,18 @@ const origin = "https://www.symphonyclinic.co.kr";
 const images = {
   logo: `${origin}/img/plastic-logo-pc.png`,
   logoMobile: `${origin}/img/plastic-logo-mo.png`,
-  hero: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec01_img.png`,
+  hero: "/images/hero.jpg",
   early: `${origin}/img/eye_plastic_main02.jpg`,
   eyes: `${origin}/img/eye_plastic_main03.jpg`,
   noDouble: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec03_img.png`,
   middle: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec05_img.png`,
   antiAging: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec06_img.png`,
   clinic: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec07_img_new.jpg`,
+  vietnamLandmarks: "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.png",
   video: "https://img.youtube.com/vi/kAd1ATih9_k/maxresdefault.jpg",
+  careGuide: "/images/vietnam-care-guide.jpg",
   skinVideo: "https://img.youtube.com/vi/JFEHZud-NzE/maxresdefault.jpg",
+  recoveryGuide: "/images/recovery-guide.jpg",
 };
 
 const navItems = [
@@ -105,19 +108,19 @@ const antiAgingItems = [
 
 const videos = [
   [
+    "Destination notes",
+    images.vietnamLandmarks,
+    "Vietnam landmarks to explore around your care journey",
+  ],
+  [
     "Vietnam care guide",
-    images.video,
+    images.careGuide,
     "What to expect from a medical journey in Vietnam",
   ],
   [
     "Recovery guide",
-    images.skinVideo,
+    images.recoveryGuide,
     "How to plan rest and support after treatment",
-  ],
-  [
-    "Destination notes",
-    images.clinic,
-    "A calmer way to experience care away from home",
   ],
 ];
 
@@ -130,26 +133,15 @@ function Arrow({ up = false }) {
 }
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState(0);
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
 
   const scrollTo = (id) => {
     if (id === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      setMenuOpen(false);
       return;
     }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false);
   };
   const submitConsultation = (event) => {
     event.preventDefault();
@@ -171,10 +163,7 @@ function App() {
             <em>VIETNAM SUPPORT</em>
           </span>
         </button>
-        <nav
-          className={menuOpen ? "main-nav is-open" : "main-nav"}
-          aria-label="Main navigation"
-        >
+        <nav className="main-nav" aria-label="Main navigation">
           {navItems.map(([label, target]) => (
             <button type="button" key={label} onClick={() => scrollTo(target)}>
               {label}
@@ -187,21 +176,8 @@ function App() {
             type="button"
             onClick={() => scrollTo("contact")}
           >
-            Start planning <Arrow />
-          </button>
-          <button className="language-button" type="button">
-            Language <span>⌄</span>
-          </button>
-          <button
-            className="menu-toggle"
-            type="button"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-expanded={menuOpen}
-            aria-label="Open menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span className="skin-link-label">Start planning</span>
+            <Arrow />
           </button>
         </div>
       </header>
