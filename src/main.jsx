@@ -14,11 +14,12 @@ const images = {
   middle: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec05_img.png`,
   antiAging: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec06_img.png`,
   clinic: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec07_img_new.jpg`,
-  vietnamLandmarks: "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.png",
+  vietnamLandmarks:
+    "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.png",
   video: "https://img.youtube.com/vi/kAd1ATih9_k/maxresdefault.jpg",
   careGuide: "/images/vietnam-care-guide.jpg",
   skinVideo: "https://img.youtube.com/vi/JFEHZud-NzE/maxresdefault.jpg",
-  recoveryGuide: "/images/recovery-guide.jpg",
+  recoveryGuide: "/images/recovery-guide.png",
 };
 
 const navItems = [
