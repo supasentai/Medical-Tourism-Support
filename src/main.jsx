@@ -211,6 +211,25 @@ function App() {
           </div>
         </section>
 
+        <section className="trust-strip" aria-label="Support at a glance">
+          <div>
+            <strong>24/7</strong>
+            <span>Private support</span>
+          </div>
+          <div>
+            <strong>EN</strong>
+            <span>Clear communication</span>
+          </div>
+          <div>
+            <strong>3</strong>
+            <span>Vietnam care hubs</span>
+          </div>
+          <div>
+            <strong>01</strong>
+            <span>Journey coordinator</span>
+          </div>
+        </section>
+
         <div id="services" aria-label="Signature medical tourism support">
           {serviceSlides.map((slide, index) => (
             <section
