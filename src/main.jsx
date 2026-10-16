@@ -226,6 +226,9 @@ function App() {
             className="hero-image"
             src={images.hero}
             alt="A calm private healthcare setting in Vietnam"
+            fetchPriority="high"
+            width="2400"
+            height="1400"
           />
           <div className="hero-overlay"></div>
           <div className="hero-content">
@@ -298,7 +301,13 @@ function App() {
                 </button>
               </div>
               <div className="story-image-wrap">
-                <img src={slide.image} alt={slide.title} />
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  loading="lazy"
+                  width="1200"
+                  height="800"
+                />
               </div>
             </section>
           ))}
@@ -309,6 +318,9 @@ function App() {
             <img
               src={images.clinic}
               alt="A warm consultation space in Vietnam"
+              loading="lazy"
+              width="1200"
+              height="900"
             />
           </div>
           <div className="philosophy-copy">
@@ -351,6 +363,9 @@ function App() {
             <img
               src={images.antiAging}
               alt="A consultation and care planning moment in Vietnam"
+              loading="lazy"
+              width="1200"
+              height="1000"
             />
           </div>
           <div className="anti-aging-list">
@@ -395,7 +410,13 @@ function App() {
             </div>
           </div>
           <div className="media-feature">
-            <img src={video[1]} alt={video[2]} />
+            <img
+              src={video[1]}
+              alt={video[2]}
+              loading="lazy"
+              width="1400"
+              height="900"
+            />
             <a
               className="play-button"
               href={video[3]}
