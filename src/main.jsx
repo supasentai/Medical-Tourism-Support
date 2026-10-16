@@ -426,6 +426,33 @@ function App() {
           </div>
         </section>
 
+        <section className="testimonial-section" aria-labelledby="testimonial-title">
+          <div className="testimonial-image">
+            <img
+              src="/images/testimonial-placeholder.png"
+              alt="Placeholder portrait for a future patient testimonial"
+              loading="lazy"
+              width="900"
+              height="1200"
+            />
+          </div>
+          <div className="testimonial-copy">
+            <p className="eyebrow">Sample testimonial</p>
+            <h2 id="testimonial-title">
+              A calmer way
+              <br />
+              <span>to make a big decision.</span>
+            </h2>
+            <blockquote>
+              “The planning felt clear, calm and personal from my first message
+              to the day I flew home.”
+            </blockquote>
+            <p className="testimonial-placeholder">
+              Placeholder quote. Replace with an approved patient story before launch.
+            </p>
+          </div>
+        </section>
+
         <section className="anti-aging-section" id="anti-aging">
           <div className="anti-aging-intro">
             <p className="eyebrow">Medical tourism support in Vietnam</p>

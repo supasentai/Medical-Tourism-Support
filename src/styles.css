@@ -739,6 +739,55 @@ img {
   font-size: 13px;
   line-height: 1.75;
 }
+.testimonial-section {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  min-height: 650px;
+  background: #fff;
+}
+.testimonial-image {
+  min-height: 650px;
+  overflow: hidden;
+  background: #e9e2d9;
+}
+.testimonial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.72) sepia(0.08);
+}
+.testimonial-copy {
+  align-self: center;
+  padding: 90px clamp(36px, 8vw, 125px);
+}
+.testimonial-copy h2 {
+  margin: 0;
+  color: #7f7b75;
+  font-family: var(--serif);
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+.testimonial-copy h2 span {
+  color: var(--gold);
+}
+.testimonial-copy blockquote {
+  max-width: 500px;
+  margin: 38px 0 18px;
+  color: #5d554d;
+  font-family: var(--serif);
+  font-size: 27px;
+  line-height: 1.35;
+}
+.testimonial-placeholder {
+  max-width: 350px;
+  margin: 0;
+  color: #a49c93;
+  font-size: 11px;
+  line-height: 1.6;
+}
 .anti-aging-section {
   min-height: 860px;
   position: relative;
@@ -1406,6 +1455,16 @@ button:hover .arrow {
     gap: 45px;
     padding: 90px 9vw;
   }
+  .testimonial-section {
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+  .testimonial-image {
+    min-height: 520px;
+  }
+  .testimonial-copy {
+    padding: 65px 7vw;
+  }
   .anti-aging-section {
     grid-template-columns: 1fr 1fr;
     min-height: auto;
@@ -1583,6 +1642,20 @@ button:hover .arrow {
   }
   .why-vietnam-grid h3 {
     font-size: 21px;
+  }
+  .testimonial-section {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-image {
+    min-height: 350px;
+    height: 350px;
+  }
+  .testimonial-copy {
+    padding: 64px 24px 78px;
+  }
+  .testimonial-copy blockquote {
+    margin-top: 30px;
+    font-size: 23px;
   }
   .timeline-step {
     grid-template-columns: 42px 1fr 28px;
