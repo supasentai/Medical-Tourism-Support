@@ -169,8 +169,10 @@ function App() {
   const [activeVideo, setActiveVideo] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [selectedSupport, setSelectedSupport] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollTo = (id) => {
+    setIsMenuOpen(false);
     if (id === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -189,7 +191,7 @@ function App() {
 
   return (
     <div className="site-shell">
-      <header className="site-header">
+      <header className={`site-header ${isMenuOpen ? "menu-open" : ""}`}>
         <button
           className="brand-button"
           type="button"
@@ -200,6 +202,17 @@ function App() {
             <strong>MEDICAL TOURISM</strong>
             <em>VIETNAM SUPPORT</em>
           </span>
+        </button>
+        <button
+          className="mobile-menu-toggle"
+          type="button"
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
         <nav className="main-nav" aria-label="Main navigation">
           {navItems.map(([label, target]) => (
