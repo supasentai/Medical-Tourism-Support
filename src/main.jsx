@@ -125,6 +125,15 @@ const videos = [
   ],
 ];
 
+const journeySteps = [
+  ["01", "Plan", "service-01"],
+  ["02", "Match", "service-02"],
+  ["03", "Arrive", "service-03"],
+  ["04", "Treat", "service-04"],
+  ["05", "Recover", "service-05"],
+  ["06", "Follow up", "service-06"],
+];
+
 function Arrow({ up = false }) {
   return (
     <span className={up ? "arrow arrow-up" : "arrow"} aria-hidden="true">
@@ -231,6 +240,14 @@ function App() {
         </section>
 
         <div id="services" aria-label="Signature medical tourism support">
+          <nav className="journey-rail" aria-label="Care journey steps">
+            {journeySteps.map(([number, label, target]) => (
+              <button type="button" key={target} onClick={() => scrollTo(target)}>
+                <span>{number}</span>
+                {label}
+              </button>
+            ))}
+          </nav>
           {serviceSlides.map((slide, index) => (
             <section
               id={`service-${slide.number}`}

@@ -328,6 +328,36 @@ img {
   font-size: 11px;
   letter-spacing: 0.04em;
 }
+.journey-rail {
+  position: sticky;
+  top: 86px;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 62px);
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+.journey-rail button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+  background: transparent;
+  color: #807a73;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.journey-rail button:hover {
+  color: var(--gold);
+}
+.journey-rail span {
+  color: #b4aea7;
+  font-family: var(--serif);
+  font-size: 18px;
+}
 .service-story {
   min-height: 760px;
   position: relative;
@@ -1051,6 +1081,15 @@ button:hover .arrow {
   .trust-strip > div:nth-child(2) {
     border-right: 0;
   }
+  .journey-rail {
+    top: 76px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .journey-rail::-webkit-scrollbar {
+    display: none;
+  }
   .service-story {
     min-height: 670px;
     grid-template-columns: 1fr;
@@ -1202,6 +1241,10 @@ button:hover .arrow {
   }
   .trust-strip span {
     font-size: 9px;
+  }
+  .journey-rail {
+    gap: 22px;
+    padding: 14px 18px;
   }
   .service-story {
     min-height: 650px;
