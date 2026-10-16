@@ -359,6 +359,40 @@ function App() {
           </div>
         </section>
 
+        <section className="timeline-section" id="journey" aria-labelledby="journey-title">
+          <div className="timeline-intro">
+            <p className="eyebrow">Your care journey</p>
+            <h2 id="journey-title">
+              One clear path,
+              <br />
+              <span>step by step.</span>
+            </h2>
+            <p>
+              Good support makes the journey feel considered before you ever
+              board the flight.
+            </p>
+          </div>
+          <div className="timeline-list">
+            {serviceSlides.map((slide, index) => (
+              <button
+                className="timeline-step"
+                type="button"
+                key={slide.number}
+                onClick={() => scrollTo(`service-${slide.number}`)}
+              >
+                <span className="timeline-step-number">{slide.number}</span>
+                <span className="timeline-step-copy">
+                  <small>{slide.english}</small>
+                  <strong>{slide.title}</strong>
+                </span>
+                <span className="timeline-step-line" aria-hidden="true">
+                  {index < serviceSlides.length - 1 ? "→" : "✓"}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+
         <section className="anti-aging-section" id="anti-aging">
           <div className="anti-aging-intro">
             <p className="eyebrow">Medical tourism support in Vietnam</p>
