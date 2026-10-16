@@ -535,6 +535,55 @@ function App() {
                     required
                   />
                 </div>
+                <div className="form-row">
+                  <label className="sr-only" htmlFor="support-type">
+                    Support needed
+                  </label>
+                  <select id="support-type" name="support-type" defaultValue="" required>
+                    <option value="" disabled>
+                      Support needed
+                    </option>
+                    <option value="care-options">Care options</option>
+                    <option value="arrival">Airport and arrival support</option>
+                    <option value="doctor-matching">Doctor matching</option>
+                    <option value="recovery">Recovery and nursing</option>
+                    <option value="full-journey">Full journey planning</option>
+                  </select>
+                  <label className="sr-only" htmlFor="travel-date">
+                    Expected travel date
+                  </label>
+                  <input
+                    id="travel-date"
+                    type="date"
+                    name="travel-date"
+                    aria-label="Expected travel date"
+                  />
+                </div>
+                <div className="form-row">
+                  <label className="sr-only" htmlFor="budget">
+                    Estimated budget
+                  </label>
+                  <select id="budget" name="budget" defaultValue="" required>
+                    <option value="" disabled>
+                      Estimated budget
+                    </option>
+                    <option value="planning">Still planning</option>
+                    <option value="under-3000">Under $3,000</option>
+                    <option value="3000-7000">$3,000 to $7,000</option>
+                    <option value="over-7000">Over $7,000</option>
+                  </select>
+                  <label className="sr-only" htmlFor="companions">
+                    Traveling with a companion
+                  </label>
+                  <select id="companions" name="companions" defaultValue="" required>
+                    <option value="" disabled>
+                      Traveling with a companion?
+                    </option>
+                    <option value="solo">Traveling solo</option>
+                    <option value="one-companion">One companion</option>
+                    <option value="group">Two or more companions</option>
+                  </select>
+                </div>
                 <textarea
                   placeholder="What kind of support are you looking for?"
                   aria-label="Support request"
@@ -542,6 +591,10 @@ function App() {
                   rows="3"
                   required
                 ></textarea>
+                <p className="form-note">
+                  Share only what you are comfortable discussing. We will reply
+                  with practical next steps.
+                </p>
                 <label className="agree">
                   <input type="checkbox" required /> I agree to be contacted
                   about my request.

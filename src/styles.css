@@ -964,7 +964,8 @@ img {
   gap: 10px;
 }
 .consult-form input,
-.consult-form textarea {
+.consult-form textarea,
+.consult-form select {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 0;
@@ -974,8 +975,24 @@ img {
   padding: 13px 15px;
   font-size: 13px;
 }
+.consult-form select {
+  appearance: none;
+  color: #c4b8ab;
+  background-image: linear-gradient(45deg, transparent 50%, #c4b8ab 50%),
+    linear-gradient(135deg, #c4b8ab 50%, transparent 50%);
+  background-position: calc(100% - 16px) 18px, calc(100% - 11px) 18px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.consult-form select:valid {
+  color: #fff;
+}
+.consult-form option {
+  color: #2f2a24;
+}
 .consult-form input:focus,
-.consult-form textarea:focus {
+.consult-form textarea:focus,
+.consult-form select:focus {
   border-color: var(--gold-light);
 }
 .consult-form input::placeholder,
@@ -986,6 +1003,23 @@ img {
   display: block;
   resize: vertical;
   margin-top: 10px;
+}
+.form-note {
+  margin: 12px 0 0;
+  color: #aa9d90;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 .agree {
   display: flex;
