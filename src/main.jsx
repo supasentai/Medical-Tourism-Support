@@ -117,16 +117,19 @@ const videos = [
     "Destination notes",
     images.vietnamLandmarks,
     "Vietnam landmarks to explore around your care journey",
+    "https://www.youtube.com/watch?v=kAd1ATih9_k",
   ],
   [
     "Vietnam care guide",
     images.careGuide,
     "What to expect from a medical journey in Vietnam",
+    "https://www.youtube.com/watch?v=JFEHZud-NzE",
   ],
   [
     "Recovery guide",
     images.recoveryGuide,
     "How to plan rest and support after treatment",
+    "https://www.youtube.com/watch?v=kAd1ATih9_k",
   ],
 ];
 
@@ -378,7 +381,15 @@ function App() {
           </div>
           <div className="media-feature">
             <img src={video[1]} alt={video[2]} />
-            <div className="play-button">▶</div>
+            <a
+              className="play-button"
+              href={video[3]}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Watch ${video[0]}`}
+            >
+              ▶
+            </a>
             <div className="media-caption">
               <span>Youtube</span>
               <strong>{video[2]}</strong>
