@@ -23,7 +23,7 @@ const images = {
 };
 
 const navItems = [
-  ["Why Vietnam", "about"],
+  ["Why Vietnam", "why-vietnam"],
   ["Before you fly", "service-01"],
   ["Care options", "service-02"],
   ["Local coordination", "service-04"],
@@ -390,6 +390,39 @@ function App() {
                 </span>
               </button>
             ))}
+          </div>
+        </section>
+
+        <section className="why-vietnam-section" id="why-vietnam" aria-labelledby="why-vietnam-title">
+          <div className="why-vietnam-heading">
+            <p className="eyebrow">Why Vietnam</p>
+            <h2 id="why-vietnam-title">
+              Care that leaves
+              <br />
+              <span>room to breathe.</span>
+            </h2>
+          </div>
+          <div className="why-vietnam-grid">
+            <article>
+              <span>01</span>
+              <h3>Compare with clarity</h3>
+              <p>Understand your options, timing and next steps before making a decision.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Stay understood</h3>
+              <p>Keep communication practical with language and local coordination when needed.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Recover at your pace</h3>
+              <p>Plan calm stays, transport and support around the rhythm of your recovery.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Make the trip yours</h3>
+              <p>Leave room for good food, gentle exploring and the people traveling with you.</p>
+            </article>
           </div>
         </section>
 
