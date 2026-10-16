@@ -199,13 +199,13 @@ function App() {
               <br />
               <span>for Beauty?</span>
             </h1>
-            <p>You Don't Have to Do It Alone</p>
+            <p>Plan your care journey with local support from arrival to home.</p>
             <button
               className="circle-cta"
               type="button"
               onClick={() => scrollTo("services")}
             >
-              <span className="circle-cta-label">EXPLORE SUPPORT</span>
+              <span className="circle-cta-label">START PLANNING</span>
               <Arrow />
             </button>
           </div>
