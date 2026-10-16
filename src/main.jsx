@@ -142,6 +142,21 @@ const journeySteps = [
   ["06", "Follow up", "service-06"],
 ];
 
+const faqItems = [
+  [
+    "Can you help before I book my flight?",
+    "Yes. We can help you map out care options, timing, budget and practical arrival details before you travel.",
+  ],
+  [
+    "Do I need to choose a clinic first?",
+    "No. Share what you are looking for and we can help you understand suitable specialists and care settings.",
+  ],
+  [
+    "Can a companion join the planning?",
+    "Of course. Transport, accommodation and a simple day-by-day plan can be shaped for both patients and companions.",
+  ],
+];
+
 function Arrow({ up = false }) {
   return (
     <span className={up ? "arrow arrow-up" : "arrow"} aria-hidden="true">
@@ -394,6 +409,29 @@ function App() {
               <span>Youtube</span>
               <strong>{video[2]}</strong>
             </div>
+          </div>
+        </section>
+
+        <section className="faq-section" aria-labelledby="faq-title">
+          <div className="faq-intro">
+            <p className="eyebrow">Before you book</p>
+            <h2 id="faq-title">
+              Start with a
+              <br />
+              <span>clear answer.</span>
+            </h2>
+            <p>
+              A few practical answers before you decide whether Vietnam is the
+              right next step for your care journey.
+            </p>
+          </div>
+          <div className="faq-list">
+            {faqItems.map(([question, answer]) => (
+              <details key={question}>
+                <summary>{question}</summary>
+                <p>{answer}</p>
+              </details>
+            ))}
           </div>
         </section>
 
