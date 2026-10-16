@@ -488,18 +488,23 @@ function App() {
                     type="text"
                     placeholder="Name"
                     aria-label="Name"
+                    name="name"
+                    autoComplete="name"
                     required
                   />
                   <input
                     type="email"
                     placeholder="Email or WhatsApp"
                     aria-label="Email or WhatsApp"
+                    name="contact"
+                    autoComplete="email"
                     required
                   />
                 </div>
                 <textarea
                   placeholder="What kind of support are you looking for?"
                   aria-label="Support request"
+                  name="support-request"
                   rows="3"
                   required
                 ></textarea>
