@@ -145,6 +145,7 @@ function Arrow({ up = false }) {
 function App() {
   const [activeVideo, setActiveVideo] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [selectedSupport, setSelectedSupport] = useState("");
 
   const scrollTo = (id) => {
     if (id === "top") {
@@ -156,6 +157,10 @@ function App() {
   const submitConsultation = (event) => {
     event.preventDefault();
     setSubmitted(true);
+  };
+  const requestSupport = (slide) => {
+    setSelectedSupport(`${slide.english}: ${slide.title}`);
+    scrollTo("contact");
   };
   const video = videos[activeVideo];
 
@@ -262,7 +267,8 @@ function App() {
                 <button
                   className="round-link"
                   type="button"
-                  onClick={() => scrollTo("contact")}
+                  onClick={() => requestSupport(slide)}
+                  aria-label={`Request support for ${slide.title}`}
                 >
                   <span className="round-link-label">VIEW MORE</span>
                   <Arrow />
@@ -398,7 +404,9 @@ function App() {
             <p className="eyebrow">Start a conversation</p>
             <h2>Plan your care in Vietnam.</h2>
             <p className="contact-prompt">
-              Planning your trip? Send us a message to start!
+              {selectedSupport
+                ? `Tell us more about ${selectedSupport.toLowerCase()}.`
+                : "Planning your trip? Send us a message to start!"}
             </p>
             <div className="hours">
               <h3>Support availability</h3>
