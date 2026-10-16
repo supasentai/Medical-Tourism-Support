@@ -662,6 +662,12 @@ img {
   font-size: 12px;
   font-style: normal;
 }
+.anti-item b {
+  color: var(--gold-light);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
 .anti-item > .arrow {
   color: var(--gold-light);
   font-size: 21px;

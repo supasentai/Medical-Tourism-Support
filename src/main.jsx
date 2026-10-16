@@ -79,31 +79,36 @@ const serviceSlides = [
 ];
 
 const antiAgingItems = [
-  ["Visa support", "Fast-track visas", "Quick processing from $100 USD."],
+  ["Visa support", "Fast-track visas", "Quick processing", "From $100 USD"],
   [
     "Private transfers",
     "24/7 private transfers",
-    "Airport, hotel, and hospital rides.",
+    "Airport, hotel, and hospital rides",
+    "Available 24/7",
   ],
   [
     "Hotel booking",
     "Tailored stays",
-    "Comfortable stays from $20 USD per night.",
+    "Comfortable stays",
+    "From $20 USD / night",
   ],
   [
     "Doctor matching",
     "Find your specialist",
-    "Direct connection to specialists for your needs.",
+    "Direct connection to specialists",
+    "Matched to your needs",
   ],
   [
     "In-hotel nursing",
     "Care where you stay",
-    "Professional wound care and dressing changes.",
+    "Professional wound care",
+    "By arrangement",
   ],
   [
     "Custom itineraries",
     "Balance your journey",
-    "Travel, surgery, and dining plans shaped around you.",
+    "Travel, surgery, and dining plans",
+    "Built around you",
   ],
 ];
 
@@ -331,7 +336,7 @@ function App() {
             />
           </div>
           <div className="anti-aging-list">
-            {antiAgingItems.map(([english, title, copy]) => (
+            {antiAgingItems.map(([english, title, copy, detail]) => (
               <button
                 type="button"
                 className="anti-item"
@@ -342,6 +347,7 @@ function App() {
                   <small>{english}</small>
                   <strong>{title}</strong>
                   <em>{copy}</em>
+                  <b>{detail}</b>
                 </span>
                 <Arrow />
               </button>
