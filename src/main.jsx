@@ -2,24 +2,14 @@ import { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
-const origin = "https://www.symphonyclinic.co.kr";
-
 const images = {
-  logo: `${origin}/img/plastic-logo-pc.png`,
-  logoMobile: `${origin}/img/plastic-logo-mo.png`,
   hero: "/images/hero.webp",
-  early: `${origin}/img/eye_plastic_main02.jpg`,
-  eyes: `${origin}/img/eye_plastic_main03.jpg`,
-  noDouble: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec03_img.png`,
-  middle: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec05_img.png`,
-  antiAging: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec06_img.png`,
   clinic: "/images/assist.webp",
   vietnamLandmarks:
     "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.webp",
-  video: "https://img.youtube.com/vi/kAd1ATih9_k/maxresdefault.jpg",
   careGuide: "/images/vietnam-care-guide.webp",
-  skinVideo: "https://img.youtube.com/vi/JFEHZud-NzE/maxresdefault.jpg",
   recoveryGuide: "/images/recovery-guide.webp",
+  antiAging: "/images/assist.webp",
 };
 
 const navItems = [
