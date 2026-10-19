@@ -257,6 +257,11 @@ function App() {
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
   const [language, setLanguage] = useState("en");
   const [activeVideoModal, setActiveVideoModal] = useState(null);
+  const [planner, setPlanner] = useState({
+    support: "",
+    timing: "",
+    travel: "",
+  });
   const copy = languageCopy[language];
 
   const scrollTo = (id) => {
@@ -278,6 +283,9 @@ function App() {
   const changeLanguage = (nextLanguage) => {
     setLanguage(nextLanguage);
     document.documentElement.lang = nextLanguage;
+  };
+  const updatePlanner = (field, value) => {
+    setPlanner((current) => ({ ...current, [field]: value }));
   };
   const video = videos[activeVideo];
 
@@ -556,6 +564,62 @@ function App() {
             <p className="testimonial-placeholder">
               Placeholder quote. Replace with an approved patient story before launch.
             </p>
+          </div>
+        </section>
+
+        <section className="planner-section" id="planner" aria-labelledby="planner-title">
+          <div className="planner-intro">
+            <p className="eyebrow">Plan your first step</p>
+            <h2 id="planner-title">
+              Shape a journey
+              <br />
+              <span>that fits you.</span>
+            </h2>
+            <p>Choose a few starting points and we will help turn them into a practical conversation.</p>
+          </div>
+          <div className="planner-card">
+            <label>
+              What support do you need?
+              <select value={planner.support} onChange={(event) => updatePlanner("support", event.target.value)}>
+                <option value="">Choose one</option>
+                <option value="Care options">Care options</option>
+                <option value="Arrival support">Arrival support</option>
+                <option value="Recovery care">Recovery care</option>
+                <option value="Full journey planning">Full journey planning</option>
+              </select>
+            </label>
+            <label>
+              When are you thinking of traveling?
+              <select value={planner.timing} onChange={(event) => updatePlanner("timing", event.target.value)}>
+                <option value="">Choose a timeframe</option>
+                <option value="Within the next 3 months">Within the next 3 months</option>
+                <option value="In 3 to 6 months">In 3 to 6 months</option>
+                <option value="Still exploring">Still exploring</option>
+              </select>
+            </label>
+            <label>
+              What should the trip feel like?
+              <select value={planner.travel} onChange={(event) => updatePlanner("travel", event.target.value)}>
+                <option value="">Choose a style</option>
+                <option value="Calm and recovery-led">Calm and recovery-led</option>
+                <option value="Balanced care and exploring">Balanced care and exploring</option>
+                <option value="Care-focused and efficient">Care-focused and efficient</option>
+              </select>
+            </label>
+            <div className="planner-summary" aria-live="polite">
+              <small>Your starting plan</small>
+              <strong>{planner.support || "Support to be chosen"}</strong>
+              <span>{planner.timing || "Timing to be chosen"} · {planner.travel || "Travel style to be chosen"}</span>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedSupport(planner.support || "a first journey plan");
+                  scrollTo("contact");
+                }}
+              >
+                Continue to support <Arrow />
+              </button>
+            </div>
           </div>
         </section>
 
