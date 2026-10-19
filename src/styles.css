@@ -1365,6 +1365,38 @@ img {
   border: 0;
   filter: grayscale(0.25) saturate(0.75);
 }
+.map-placeholder {
+  display: grid;
+  min-height: 670px;
+  place-items: center;
+  padding: 48px;
+  background:
+    linear-gradient(135deg, rgba(201, 149, 74, 0.17), transparent 52%),
+    #e6e3dc;
+  color: #5d554d;
+  text-align: center;
+}
+.map-placeholder > div {
+  max-width: 280px;
+}
+.map-placeholder .eyebrow {
+  display: block;
+  color: var(--gold);
+}
+.map-placeholder p {
+  margin: 12px 0 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.map-placeholder button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 12px;
+}
 .address-block {
   position: absolute;
   left: clamp(26px, 6vw, 92px);

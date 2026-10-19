@@ -255,6 +255,7 @@ function App() {
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
   const [language, setLanguage] = useState("en");
   const [activeVideoModal, setActiveVideoModal] = useState(null);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
   const [planner, setPlanner] = useState({
     support: "",
     timing: "",
@@ -813,11 +814,23 @@ function App() {
 
         <section className="contact-section" id="contact">
           <div className="contact-map">
-            <iframe
-              title="Medical tourism destinations in Vietnam"
-              src="https://www.google.com/maps?q=Ho%20Chi%20Minh%20City%2C%20Vietnam&output=embed"
-              loading="lazy"
-            ></iframe>
+            {isMapLoaded ? (
+              <iframe
+                title="Medical tourism destinations in Vietnam"
+                src="https://www.google.com/maps?q=Ho%20Chi%20Minh%20City%2C%20Vietnam&output=embed"
+                loading="lazy"
+              ></iframe>
+            ) : (
+              <div className="map-placeholder">
+                <div>
+                  <span className="eyebrow">Vietnam care hubs</span>
+                  <p>Load the interactive map when you are ready to explore.</p>
+                  <button type="button" onClick={() => setIsMapLoaded(true)}>
+                    Load interactive map <Arrow />
+                  </button>
+                </div>
+              </div>
+            )}
             <div className="address-block">
               <p className="eyebrow">Destinations</p>
               <h3>Vietnam care hubs</h3>
