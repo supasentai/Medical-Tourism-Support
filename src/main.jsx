@@ -368,14 +368,19 @@ function App() {
 
       <main id="top">
         <section className="hero" id="about">
-          <img
-            className="hero-image"
-            src={images.hero}
-            alt="A calm private healthcare setting in Vietnam"
-            fetchPriority="high"
-            width="2400"
-            height="1400"
-          />
+          <picture>
+            <source media="(max-width: 720px)" srcSet="/images/hero-mobile.webp" />
+            <img
+              className="hero-image"
+              src={images.hero}
+              srcSet="/images/hero.webp 1800w, /images/hero-mobile.webp 900w"
+              sizes="100vw"
+              alt="A calm private healthcare setting in Vietnam"
+              fetchPriority="high"
+              width="2400"
+              height="1400"
+            />
+          </picture>
           <div className="hero-overlay"></div>
           <div className="hero-content">
             <div className="hero-mark">V</div>
@@ -455,6 +460,8 @@ function App() {
               <div className="story-image-wrap">
                 <img
                   src={slide.image}
+                  srcSet={`${slide.image.replace(".webp", "-mobile.webp")} 900w, ${slide.image} 1800w`}
+                  sizes="(max-width: 720px) 100vw, 50vw"
                   alt={slide.title}
                   loading="lazy"
                   width="1200"
@@ -569,6 +576,8 @@ function App() {
           <div className="testimonial-image">
             <img
               src="/images/testimonial-placeholder.webp"
+              srcSet="/images/testimonial-placeholder-mobile.webp 900w, /images/testimonial-placeholder.webp 1800w"
+              sizes="(max-width: 720px) 100vw, 42vw"
               alt="Placeholder portrait for a future patient testimonial"
               loading="lazy"
               width="900"
@@ -717,6 +726,8 @@ function App() {
           <div className="media-feature">
             <img
               src={video[1]}
+              srcSet={`${video[1].replace(".webp", "-mobile.webp")} 900w, ${video[1]} 1800w`}
+              sizes="(max-width: 720px) 100vw, 58vw"
               alt={video[2]}
               loading="lazy"
               width="1400"
@@ -781,7 +792,15 @@ function App() {
             ].map(([city, description, image]) => (
               <article className="destination-card" key={city}>
                 <div className="destination-card-image">
-                  <img src={image} alt={`${city} destination support`} loading="lazy" width="900" height="650" />
+                  <img
+                    src={image}
+                    srcSet={`${image.replace(".webp", "-mobile.webp")} 900w, ${image} 1800w`}
+                    sizes="(max-width: 720px) 100vw, 30vw"
+                    alt={`${city} destination support`}
+                    loading="lazy"
+                    width="900"
+                    height="650"
+                  />
                 </div>
                 <div className="destination-card-copy">
                   <h3>{city}</h3>
