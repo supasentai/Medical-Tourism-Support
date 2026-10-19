@@ -50,7 +50,7 @@ const languageCopy = {
     trust: ["Private support", "Clear communication", "Vietnam care hubs", "Journey coordinator"],
     journey: ["Plan", "Match", "Arrive", "Treat", "Recover", "Follow up"],
     serviceCta: "VIEW MORE",
-    serviceLabels: serviceSlides.map((slide) => [slide.english, slide.title]),
+    serviceLabels: [["Before you fly", "Plan with clarity"], ["Care matching", "Find the right care"], ["Arrival support", "Arrive with ease"], ["Interpretation", "Be understood"], ["Recovery stays", "Recover comfortably"], ["Follow-up care", "Stay supported"]],
     timelineEyebrow: "Your care journey",
     timelineTitle: ["One clear path,", "step by step."],
     whyEyebrow: "Why Vietnam",
