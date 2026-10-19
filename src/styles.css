@@ -1183,6 +1183,73 @@ img {
   font-size: 14px;
   line-height: 1.75;
 }
+.destinations-section {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 7%;
+  padding: 120px clamp(30px, 8vw, 130px);
+  background: #f5f2ed;
+}
+.destinations-heading h2 {
+  margin: 0;
+  color: #7f7b75;
+  font-family: var(--serif);
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+.destinations-heading h2 span {
+  color: var(--gold);
+}
+.destinations-heading > p:last-child {
+  max-width: 260px;
+  color: #96908a;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.destination-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.destination-card {
+  background: #fff;
+}
+.destination-card-image {
+  height: 220px;
+  overflow: hidden;
+  background: #d8d0c7;
+}
+.destination-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.62) brightness(1.05);
+}
+.destination-card-copy {
+  padding: 24px 22px 25px;
+}
+.destination-card h3 {
+  margin: 0 0 8px;
+  color: #514a43;
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 400;
+}
+.destination-card p {
+  min-height: 58px;
+  margin: 0 0 19px;
+  color: #96908a;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.destination-card button {
+  padding: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: 11px;
+}
 .contact-section {
   display: grid;
   grid-template-columns: 57% 43%;
@@ -1743,6 +1810,11 @@ button:hover .arrow {
     gap: 35px;
     padding: 90px 9vw;
   }
+  .destinations-section {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 90px 9vw;
+  }
   .contact-section {
     grid-template-columns: 1fr;
   }
@@ -1964,6 +2036,24 @@ button:hover .arrow {
   }
   .faq-list summary {
     font-size: 20px;
+  }
+  .destinations-section {
+    gap: 30px;
+    padding: 72px 24px;
+  }
+  .destination-cards {
+    grid-template-columns: 1fr;
+  }
+  .destination-card {
+    display: grid;
+    grid-template-columns: 42% 58%;
+  }
+  .destination-card-image {
+    height: 100%;
+    min-height: 190px;
+  }
+  .destination-card-copy {
+    padding: 20px;
   }
   .media-caption {
     left: 24px;

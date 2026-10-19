@@ -30,7 +30,7 @@ const navItems = [
   ["Recovery stays", "service-05"],
   ["For companions", "service-06"],
   ["How it works", "anti-aging"],
-  ["Destinations", "media"],
+  ["Destinations", "destinations"],
 ];
 
 const languageOptions = [
@@ -759,6 +759,45 @@ function App() {
                 <summary>{question}</summary>
                 <p>{answer}</p>
               </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="destinations-section" id="destinations" aria-labelledby="destinations-title">
+          <div className="destinations-heading">
+            <p className="eyebrow">Vietnam care hubs</p>
+            <h2 id="destinations-title">
+              Choose your
+              <br />
+              <span>base.</span>
+            </h2>
+            <p>Each city offers a different rhythm for treatment, recovery and the time around it.</p>
+          </div>
+          <div className="destination-cards">
+            {[
+              ["Ho Chi Minh City", "Energetic, connected and practical for appointments.", "/images/slide-03.jpg"],
+              ["Hanoi", "A slower cultural rhythm with calm spaces to reset.", "/images/vietnam-care-guide.jpg"],
+              ["Da Nang", "Coastal air, open space and an easy recovery pace.", "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.png"],
+            ].map(([city, description, image]) => (
+              <article className="destination-card" key={city}>
+                <div className="destination-card-image">
+                  <img src={image} alt={`${city} destination support`} loading="lazy" width="900" height="650" />
+                </div>
+                <div className="destination-card-copy">
+                  <h3>{city}</h3>
+                  <p>{description}</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      trackEvent("destination_interest", { destination: city });
+                      setSelectedSupport(`${city} destination planning`);
+                      scrollTo("contact");
+                    }}
+                  >
+                    Ask about this city <Arrow />
+                  </button>
+                </div>
+              </article>
             ))}
           </div>
         </section>
