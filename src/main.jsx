@@ -256,6 +256,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
   const [language, setLanguage] = useState("en");
+  const [activeVideoModal, setActiveVideoModal] = useState(null);
   const copy = languageCopy[language];
 
   const scrollTo = (id) => {
@@ -629,15 +630,14 @@ function App() {
               width="1400"
               height="900"
             />
-            <a
+            <button
               className="play-button"
-              href={video[3]}
-              target="_blank"
-              rel="noreferrer"
+              type="button"
+              onClick={() => setActiveVideoModal(video)}
               aria-label={`Watch ${video[0]}`}
             >
               ▶
-            </a>
+            </button>
             <div className="media-caption">
               <span>Youtube</span>
               <strong>{video[2]}</strong>
@@ -848,6 +848,41 @@ function App() {
             >
               Request this support <Arrow />
             </button>
+          </section>
+        </div>
+      )}
+
+      {activeVideoModal && (
+        <div
+          className="video-modal-backdrop"
+          role="presentation"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setActiveVideoModal(null);
+          }}
+        >
+          <section
+            className="video-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="video-modal-title"
+          >
+            <button
+              className="video-modal-close"
+              type="button"
+              aria-label="Close video"
+              onClick={() => setActiveVideoModal(null)}
+            >
+              ×
+            </button>
+            <div className="video-frame">
+              <iframe
+                title={activeVideoModal[2]}
+                src={activeVideoModal[3].replace("watch?v=", "embed/")}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <h2 id="video-modal-title">{activeVideoModal[2]}</h2>
           </section>
         </div>
       )}
