@@ -249,6 +249,14 @@ function Arrow({ up = false }) {
   );
 }
 
+function trackEvent(name, properties = {}) {
+  if (typeof window === "undefined") return;
+  const event = { event: name, ...properties };
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(event);
+  window.dispatchEvent(new CustomEvent("medical-tourism:analytics", { detail: event }));
+}
+
 function App() {
   const [activeVideo, setActiveVideo] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -274,13 +282,21 @@ function App() {
   };
   const submitConsultation = (event) => {
     event.preventDefault();
+    trackEvent("support_request_submitted", {
+      supportType: selectedSupport || "general",
+    });
     setSubmitted(true);
   };
   const requestSupport = (slide) => {
+    trackEvent("service_support_selected", {
+      serviceNumber: slide.number,
+      serviceName: slide.title,
+    });
     setSelectedSupport(`${slide.english}: ${slide.title}`);
     scrollTo("contact");
   };
   const changeLanguage = (nextLanguage) => {
+    trackEvent("language_changed", { language: nextLanguage });
     setLanguage(nextLanguage);
     document.documentElement.lang = nextLanguage;
   };
@@ -339,7 +355,10 @@ function App() {
           <button
             className="skin-link"
             type="button"
-            onClick={() => scrollTo("contact")}
+            onClick={() => {
+              trackEvent("start_planning_click", { location: "header" });
+              scrollTo("contact");
+            }}
           >
             <span className="skin-link-label">{copy.startPlanning}</span>
             <Arrow />
@@ -370,7 +389,10 @@ function App() {
             <button
               className="circle-cta"
               type="button"
-              onClick={() => scrollTo("services")}
+              onClick={() => {
+                trackEvent("start_planning_click", { location: "hero" });
+                scrollTo("services");
+              }}
             >
               <span className="circle-cta-label">{copy.heroCta}</span>
               <Arrow />
@@ -420,7 +442,10 @@ function App() {
                 <button
                   className="round-link"
                   type="button"
-                  onClick={() => setSelectedServiceDetail(slide)}
+                  onClick={() => {
+                    trackEvent("service_detail_opened", { serviceNumber: slide.number });
+                    setSelectedServiceDetail(slide);
+                  }}
                   aria-label={`View details for ${slide.title}`}
                 >
                   <span className="round-link-label">{copy.serviceCta}</span>
@@ -613,6 +638,9 @@ function App() {
               <button
                 type="button"
                 onClick={() => {
+                  trackEvent("planner_continue_click", {
+                    support: planner.support || "not-selected",
+                  });
                   setSelectedSupport(planner.support || "a first journey plan");
                   scrollTo("contact");
                 }}
@@ -697,7 +725,10 @@ function App() {
             <button
               className="play-button"
               type="button"
-              onClick={() => setActiveVideoModal(video)}
+              onClick={() => {
+                trackEvent("video_opened", { videoName: video[0] });
+                setActiveVideoModal(video);
+              }}
               aria-label={`Watch ${video[0]}`}
             >
               ▶
