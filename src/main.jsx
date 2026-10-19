@@ -772,6 +772,17 @@ function App() {
                 Response times depend on your travel dates and care needs.
               </small>
             </div>
+            <div className="legal-note" id="privacy">
+              <strong>Important information</strong>
+              <p>
+                This service provides travel and care coordination only. It does
+                not replace advice from a licensed medical professional.
+              </p>
+              <p>
+                Please do not send passport numbers, medical records or payment
+                details through this form.
+              </p>
+            </div>
             {submitted ? (
               <div className="submit-success">
                 <strong>Your journey request has been received.</strong>
@@ -968,6 +979,9 @@ function App() {
           </button>
           <button type="button" onClick={() => scrollTo("media")}>
             Destination notes
+          </button>
+          <button type="button" onClick={() => scrollTo("privacy")}>
+            Privacy & consent
           </button>
           <button type="button" onClick={() => scrollTo("contact")}>
             Request support
