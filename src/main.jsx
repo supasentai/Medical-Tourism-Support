@@ -7,19 +7,19 @@ const origin = "https://www.symphonyclinic.co.kr";
 const images = {
   logo: `${origin}/img/plastic-logo-pc.png`,
   logoMobile: `${origin}/img/plastic-logo-mo.png`,
-  hero: "/images/hero.jpg",
+  hero: "/images/hero.webp",
   early: `${origin}/img/eye_plastic_main02.jpg`,
   eyes: `${origin}/img/eye_plastic_main03.jpg`,
   noDouble: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec03_img.png`,
   middle: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec05_img.png`,
   antiAging: `${origin}/img_up/shop_pds/symphonyps/design/images/main/sec06_img.png`,
-  clinic: "/images/assist.jpeg",
+  clinic: "/images/assist.webp",
   vietnamLandmarks:
-    "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.png",
+    "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.webp",
   video: "https://img.youtube.com/vi/kAd1ATih9_k/maxresdefault.jpg",
-  careGuide: "/images/vietnam-care-guide.jpg",
+  careGuide: "/images/vietnam-care-guide.webp",
   skinVideo: "https://img.youtube.com/vi/JFEHZud-NzE/maxresdefault.jpg",
-  recoveryGuide: "/images/recovery-guide.png",
+  recoveryGuide: "/images/recovery-guide.webp",
 };
 
 const navItems = [
@@ -117,7 +117,7 @@ const serviceSlides = [
     english: "Before you fly",
     title: "Plan with clarity",
     copy: "Understand your care options, timeline and budget\nbefore you book a flight to Vietnam.",
-    image: "/images/slide-01.jpg",
+    image: "/images/slide-01.webp",
     details: ["Care timeline and budget planning", "Initial questions prepared before you fly", "Clear next steps for your first conversation"],
   },
   {
@@ -125,7 +125,7 @@ const serviceSlides = [
     english: "Care matching",
     title: "Find the right care",
     copy: "We help you compare clinics, specialists and treatment plans\nfor a decision that feels informed.",
-    image: "/images/slide-02.jpg",
+    image: "/images/slide-02.webp",
     details: ["Specialist and clinic comparisons", "Treatment questions organized for you", "A practical shortlist to discuss"],
   },
   {
@@ -133,7 +133,7 @@ const serviceSlides = [
     english: "Arrival support",
     title: "Arrive with ease",
     copy: "From airport pickup to your first appointment,\nwe coordinate the details around your schedule.",
-    image: "/images/slide-03.jpg",
+    image: "/images/slide-03.webp",
     details: ["Airport pickup coordination", "Hotel and hospital transfers", "Arrival timing planned around appointments"],
   },
   {
@@ -141,7 +141,7 @@ const serviceSlides = [
     english: "Interpretation",
     title: "Be understood",
     copy: "Clear communication before, during and after treatment\nwith language support when you need it.",
-    image: "/images/slide-04.jpeg",
+    image: "/images/slide-04.webp",
     details: ["Language support when needed", "Questions prepared for appointments", "Practical updates shared clearly"],
   },
   {
@@ -149,7 +149,7 @@ const serviceSlides = [
     english: "Recovery stays",
     title: "Recover comfortably",
     copy: "Choose a calm place to rest, with practical support\nfor your recovery between appointments.",
-    image: "/images/slide-05.jpeg",
+    image: "/images/slide-05.webp",
     details: ["Recovery-friendly accommodation options", "In-hotel nursing by arrangement", "Transport planned around rest"],
   },
   {
@@ -157,7 +157,7 @@ const serviceSlides = [
     english: "Follow-up care",
     title: "Stay supported",
     copy: "Your journey continues after you return home,\nwith follow-up coordination and clear next steps.",
-    image: "/images/slide-06.jpg",
+    image: "/images/slide-06.webp",
     details: ["Follow-up coordination", "Recovery questions organized", "Clear next steps after your return"],
   },
 ];
@@ -568,7 +568,7 @@ function App() {
         <section className="testimonial-section" aria-labelledby="testimonial-title">
           <div className="testimonial-image">
             <img
-              src="/images/testimonial-placeholder.png"
+              src="/images/testimonial-placeholder.webp"
               alt="Placeholder portrait for a future patient testimonial"
               loading="lazy"
               width="900"
@@ -775,9 +775,9 @@ function App() {
           </div>
           <div className="destination-cards">
             {[
-              ["Ho Chi Minh City", "Energetic, connected and practical for appointments.", "/images/slide-03.jpg"],
-              ["Hanoi", "A slower cultural rhythm with calm spaces to reset.", "/images/vietnam-care-guide.jpg"],
-              ["Da Nang", "Coastal air, open space and an easy recovery pace.", "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.png"],
+              ["Ho Chi Minh City", "Energetic, connected and practical for appointments.", "/images/slide-03.webp"],
+              ["Hanoi", "A slower cultural rhythm with calm spaces to reset.", "/images/vietnam-care-guide.webp"],
+              ["Da Nang", "Coastal air, open space and an easy recovery pace.", "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.webp"],
             ].map(([city, description, image]) => (
               <article className="destination-card" key={city}>
                 <div className="destination-card-image">
