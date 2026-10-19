@@ -40,6 +40,7 @@ const serviceSlides = [
     title: "Plan with clarity",
     copy: "Understand your care options, timeline and budget\nbefore you book a flight to Vietnam.",
     image: "/images/slide-01.jpg",
+    details: ["Care timeline and budget planning", "Initial questions prepared before you fly", "Clear next steps for your first conversation"],
   },
   {
     number: "02",
@@ -47,6 +48,7 @@ const serviceSlides = [
     title: "Find the right care",
     copy: "We help you compare clinics, specialists and treatment plans\nfor a decision that feels informed.",
     image: "/images/slide-02.jpg",
+    details: ["Specialist and clinic comparisons", "Treatment questions organized for you", "A practical shortlist to discuss"],
   },
   {
     number: "03",
@@ -54,6 +56,7 @@ const serviceSlides = [
     title: "Arrive with ease",
     copy: "From airport pickup to your first appointment,\nwe coordinate the details around your schedule.",
     image: "/images/slide-03.jpg",
+    details: ["Airport pickup coordination", "Hotel and hospital transfers", "Arrival timing planned around appointments"],
   },
   {
     number: "04",
@@ -61,6 +64,7 @@ const serviceSlides = [
     title: "Be understood",
     copy: "Clear communication before, during and after treatment\nwith language support when you need it.",
     image: "/images/slide-04.jpeg",
+    details: ["Language support when needed", "Questions prepared for appointments", "Practical updates shared clearly"],
   },
   {
     number: "05",
@@ -68,6 +72,7 @@ const serviceSlides = [
     title: "Recover comfortably",
     copy: "Choose a calm place to rest, with practical support\nfor your recovery between appointments.",
     image: "/images/slide-05.jpeg",
+    details: ["Recovery-friendly accommodation options", "In-hotel nursing by arrangement", "Transport planned around rest"],
   },
   {
     number: "06",
@@ -75,6 +80,7 @@ const serviceSlides = [
     title: "Stay supported",
     copy: "Your journey continues after you return home,\nwith follow-up coordination and clear next steps.",
     image: "/images/slide-06.jpg",
+    details: ["Follow-up coordination", "Recovery questions organized", "Clear next steps after your return"],
   },
 ];
 
@@ -170,6 +176,7 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [selectedSupport, setSelectedSupport] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
 
   const scrollTo = (id) => {
     setIsMenuOpen(false);
@@ -306,8 +313,8 @@ function App() {
                 <button
                   className="round-link"
                   type="button"
-                  onClick={() => requestSupport(slide)}
-                  aria-label={`Request support for ${slide.title}`}
+                  onClick={() => setSelectedServiceDetail(slide)}
+                  aria-label={`View details for ${slide.title}`}
                 >
                   <span className="round-link-label">VIEW MORE</span>
                   <Arrow />
@@ -701,6 +708,51 @@ function App() {
           </div>
         </section>
       </main>
+
+      {selectedServiceDetail && (
+        <div
+          className="service-detail-backdrop"
+          role="presentation"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setSelectedServiceDetail(null);
+          }}
+        >
+          <section
+            className="service-detail-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="service-detail-title"
+          >
+            <button
+              className="service-detail-close"
+              type="button"
+              aria-label="Close service details"
+              onClick={() => setSelectedServiceDetail(null)}
+            >
+              ×
+            </button>
+            <p className="eyebrow">{selectedServiceDetail.english}</p>
+            <h2 id="service-detail-title">{selectedServiceDetail.title}</h2>
+            <p>{selectedServiceDetail.copy}</p>
+            <ul>
+              {selectedServiceDetail.details.map((detail) => (
+                <li key={detail}>{detail}</li>
+              ))}
+            </ul>
+            <button
+              className="modal-cta"
+              type="button"
+              onClick={() => {
+                const detail = selectedServiceDetail;
+                setSelectedServiceDetail(null);
+                requestSupport(detail);
+              }}
+            >
+              Request this support <Arrow />
+            </button>
+          </section>
+        </div>
+      )}
 
       <footer className="site-footer">
         <div className="footer-brand">
