@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
@@ -247,6 +247,40 @@ function trackEvent(name, properties = {}) {
   window.dispatchEvent(new CustomEvent("medical-tourism:analytics", { detail: event }));
 }
 
+function LazyImage({ src, srcSet, sizes, alt, width, height, className = "" }) {
+  const [isReady, setIsReady] = useState(false);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    if (isReady) return undefined;
+    const node = imageRef.current;
+    if (!node) return undefined;
+    if (!("IntersectionObserver" in window)) {
+      setIsReady(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsReady(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "320px 0px" },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [isReady]);
+
+  return (
+    <div ref={imageRef} className={`lazy-image ${className}`}>
+      {isReady && (
+        <img src={src} srcSet={srcSet} sizes={sizes} alt={alt} width={width} height={height} />
+      )}
+    </div>
+  );
+}
+
 function App() {
   const [activeVideo, setActiveVideo] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -449,14 +483,14 @@ function App() {
                 </button>
               </div>
               <div className="story-image-wrap">
-                <img
+                <LazyImage
                   src={slide.image}
                   srcSet={`${slide.image.replace(".webp", "-mobile.webp")} 900w, ${slide.image} 1800w`}
                   sizes="(max-width: 720px) 100vw, 50vw"
                   alt={slide.title}
-                  loading="lazy"
                   width="1200"
                   height="800"
+                  className="story-lazy-image"
                 />
               </div>
             </section>
