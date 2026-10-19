@@ -33,6 +33,84 @@ const navItems = [
   ["Destinations", "media"],
 ];
 
+const languageOptions = [
+  ["en", "EN"],
+  ["vi", "VI"],
+  ["ko", "KO"],
+  ["zh", "中"],
+];
+
+const languageCopy = {
+  en: {
+    nav: ["Why Vietnam", "Before you fly", "Care options", "Local coordination", "Recovery stays", "For companions", "How it works", "Destinations"],
+    heroLabel: "Medical tourism support in Vietnam",
+    heroTitle: ["Coming to Vietnam", "for Beauty?"],
+    heroSub: "Plan your care journey with local support from arrival to home.",
+    heroCta: "START PLANNING",
+    trust: ["Private support", "Clear communication", "Vietnam care hubs", "Journey coordinator"],
+    journey: ["Plan", "Match", "Arrive", "Treat", "Recover", "Follow up"],
+    serviceCta: "VIEW MORE",
+    serviceLabels: serviceSlides.map((slide) => [slide.english, slide.title]),
+    timelineEyebrow: "Your care journey",
+    timelineTitle: ["One clear path,", "step by step."],
+    whyEyebrow: "Why Vietnam",
+    whyTitle: ["Care that leaves", "room to breathe."],
+    contactTitle: "Plan your care in Vietnam.",
+    startPlanning: "Start planning",
+  },
+  vi: {
+    nav: ["Vì sao Việt Nam", "Trước chuyến bay", "Lựa chọn chăm sóc", "Điều phối địa phương", "Lưu trú hồi phục", "Dành cho người đi cùng", "Quy trình", "Điểm đến"],
+    heroLabel: "Hỗ trợ du lịch y tế tại Việt Nam",
+    heroTitle: ["Đến Việt Nam", "để làm đẹp?"],
+    heroSub: "Đồng hành cùng hành trình chăm sóc của bạn từ lúc đến nơi đến khi trở về.",
+    heroCta: "BẮT ĐẦU LÊN KẾ HOẠCH",
+    trust: ["Hỗ trợ riêng tư", "Giao tiếp rõ ràng", "3 trung tâm chăm sóc", "Điều phối viên riêng"],
+    journey: ["Lên kế hoạch", "Kết nối", "Đến nơi", "Điều trị", "Hồi phục", "Theo dõi"],
+    serviceCta: "XEM THÊM",
+    serviceLabels: [["Trước chuyến bay", "Lên kế hoạch rõ ràng"], ["Kết nối chăm sóc", "Chọn đúng dịch vụ"], ["Hỗ trợ khi đến", "Đến nơi nhẹ nhàng"], ["Thông dịch", "Được thấu hiểu"], ["Lưu trú hồi phục", "Hồi phục thoải mái"], ["Chăm sóc tiếp nối", "Luôn được đồng hành"]],
+    timelineEyebrow: "Hành trình chăm sóc",
+    timelineTitle: ["Một lộ trình rõ ràng,", "từng bước một."],
+    whyEyebrow: "Vì sao Việt Nam",
+    whyTitle: ["Chăm sóc để bạn", "có thể an tâm."],
+    contactTitle: "Lên kế hoạch chăm sóc tại Việt Nam.",
+    startPlanning: "Bắt đầu lên kế hoạch",
+  },
+  ko: {
+    nav: ["왜 베트남인가", "출국 전 준비", "케어 옵션", "현지 코디네이션", "회복 숙박", "동반자 안내", "진행 방법", "여행지"],
+    heroLabel: "베트남 의료관광 지원",
+    heroTitle: ["아름다움을 위해", "베트남에 오시나요?"],
+    heroSub: "도착부터 귀국까지 현지 지원과 함께 케어 여정을 계획하세요.",
+    heroCta: "계획 시작하기",
+    trust: ["맞춤 지원", "명확한 소통", "베트남 케어 허브", "전담 코디네이터"],
+    journey: ["계획", "매칭", "도착", "치료", "회복", "후속 관리"],
+    serviceCta: "자세히 보기",
+    serviceLabels: [["출국 전 준비", "명확하게 계획하기"], ["케어 매칭", "맞는 케어 찾기"], ["도착 지원", "편안하게 도착하기"], ["통역 지원", "정확하게 소통하기"], ["회복 숙박", "편안하게 회복하기"], ["후속 관리", "계속 지원받기"]],
+    timelineEyebrow: "케어 여정",
+    timelineTitle: ["명확한 한 가지 경로,", "단계별로."],
+    whyEyebrow: "왜 베트남인가",
+    whyTitle: ["마음의 여유를 주는", "케어."],
+    contactTitle: "베트남 케어를 계획하세요.",
+    startPlanning: "계획 시작하기",
+  },
+  zh: {
+    nav: ["为什么选择越南", "出发前准备", "护理选择", "当地协调", "康复住宿", "陪同者指南", "流程介绍", "目的地"],
+    heroLabel: "越南医疗旅游支持",
+    heroTitle: ["为了美丽", "来到越南？"],
+    heroSub: "从抵达到回家，为您的护理旅程提供当地支持。",
+    heroCta: "开始规划",
+    trust: ["私人支持", "清晰沟通", "越南护理中心", "专属协调员"],
+    journey: ["规划", "匹配", "抵达", "治疗", "康复", "后续护理"],
+    serviceCta: "查看更多",
+    serviceLabels: [["出发前准备", "清晰规划"], ["护理匹配", "找到合适的护理"], ["抵达支持", "轻松抵达"], ["翻译支持", "顺畅沟通"], ["康复住宿", "舒适恢复"], ["后续护理", "持续支持"]],
+    timelineEyebrow: "您的护理旅程",
+    timelineTitle: ["一条清晰的路径，", "一步一步。"],
+    whyEyebrow: "为什么选择越南",
+    whyTitle: ["让护理旅程", "从容展开。"],
+    contactTitle: "规划您在越南的护理旅程。",
+    startPlanning: "开始规划",
+  },
+};
+
 const serviceSlides = [
   {
     number: "01",
@@ -177,6 +255,8 @@ function App() {
   const [selectedSupport, setSelectedSupport] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
+  const [language, setLanguage] = useState("en");
+  const copy = languageCopy[language];
 
   const scrollTo = (id) => {
     setIsMenuOpen(false);
@@ -193,6 +273,10 @@ function App() {
   const requestSupport = (slide) => {
     setSelectedSupport(`${slide.english}: ${slide.title}`);
     scrollTo("contact");
+  };
+  const changeLanguage = (nextLanguage) => {
+    setLanguage(nextLanguage);
+    document.documentElement.lang = nextLanguage;
   };
   const video = videos[activeVideo];
 
@@ -222,19 +306,33 @@ function App() {
           <span></span>
         </button>
         <nav className="main-nav" aria-label="Main navigation">
-          {navItems.map(([label, target]) => (
-            <button type="button" key={label} onClick={() => scrollTo(target)}>
-              {label}
+          {navItems.map(([, target], index) => (
+            <button type="button" key={target} onClick={() => scrollTo(target)}>
+              {copy.nav[index]}
             </button>
           ))}
         </nav>
         <div className="header-actions">
+          <div className="language-switcher" aria-label="Choose language">
+            {languageOptions.map(([value, label]) => (
+              <button
+                type="button"
+                key={value}
+                className={language === value ? "is-active" : ""}
+                onClick={() => changeLanguage(value)}
+                aria-label={`Change language to ${label}`}
+                aria-pressed={language === value}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
           <button
             className="skin-link"
             type="button"
             onClick={() => scrollTo("contact")}
           >
-            <span className="skin-link-label">Start planning</span>
+            <span className="skin-link-label">{copy.startPlanning}</span>
             <Arrow />
           </button>
         </div>
@@ -253,19 +351,19 @@ function App() {
           <div className="hero-overlay"></div>
           <div className="hero-content">
             <div className="hero-mark">V</div>
-            <p className="hero-label">Medical tourism support in Vietnam</p>
+            <p className="hero-label">{copy.heroLabel}</p>
             <h1>
-              Coming to Vietnam
+              {copy.heroTitle[0]}
               <br />
-              <span>for Beauty?</span>
+              <span>{copy.heroTitle[1]}</span>
             </h1>
-            <p>Plan your care journey with local support from arrival to home.</p>
+            <p>{copy.heroSub}</p>
             <button
               className="circle-cta"
               type="button"
               onClick={() => scrollTo("services")}
             >
-              <span className="circle-cta-label">START PLANNING</span>
+              <span className="circle-cta-label">{copy.heroCta}</span>
               <Arrow />
             </button>
           </div>
@@ -274,28 +372,28 @@ function App() {
         <section className="trust-strip" aria-label="Support at a glance">
           <div>
             <strong>24/7</strong>
-            <span>Private support</span>
+            <span>{copy.trust[0]}</span>
           </div>
           <div>
             <strong>EN</strong>
-            <span>Clear communication</span>
+            <span>{copy.trust[1]}</span>
           </div>
           <div>
             <strong>3</strong>
-            <span>Vietnam care hubs</span>
+            <span>{copy.trust[2]}</span>
           </div>
           <div>
             <strong>01</strong>
-            <span>Journey coordinator</span>
+            <span>{copy.trust[3]}</span>
           </div>
         </section>
 
         <div id="services" aria-label="Signature medical tourism support">
           <nav className="journey-rail" aria-label="Care journey steps">
-            {journeySteps.map(([number, label, target]) => (
+            {journeySteps.map(([number, , target], index) => (
               <button type="button" key={target} onClick={() => scrollTo(target)}>
                 <span>{number}</span>
-                {label}
+                {copy.journey[index]}
               </button>
             ))}
           </nav>
@@ -307,8 +405,8 @@ function App() {
             >
               <div className="story-number">{slide.number}</div>
               <div className="story-copy">
-                <p className="eyebrow">{slide.english}</p>
-                <h2>{slide.title}</h2>
+                <p className="eyebrow">{copy.serviceLabels[index][0]}</p>
+                <h2>{copy.serviceLabels[index][1]}</h2>
                 <p className="story-description">{slide.copy}</p>
                 <button
                   className="round-link"
@@ -316,7 +414,7 @@ function App() {
                   onClick={() => setSelectedServiceDetail(slide)}
                   aria-label={`View details for ${slide.title}`}
                 >
-                  <span className="round-link-label">VIEW MORE</span>
+                  <span className="round-link-label">{copy.serviceCta}</span>
                   <Arrow />
                 </button>
               </div>
@@ -368,11 +466,11 @@ function App() {
 
         <section className="timeline-section" id="journey" aria-labelledby="journey-title">
           <div className="timeline-intro">
-            <p className="eyebrow">Your care journey</p>
+            <p className="eyebrow">{copy.timelineEyebrow}</p>
             <h2 id="journey-title">
-              One clear path,
+              {copy.timelineTitle[0]}
               <br />
-              <span>step by step.</span>
+              <span>{copy.timelineTitle[1]}</span>
             </h2>
             <p>
               Good support makes the journey feel considered before you ever
@@ -389,8 +487,8 @@ function App() {
               >
                 <span className="timeline-step-number">{slide.number}</span>
                 <span className="timeline-step-copy">
-                  <small>{slide.english}</small>
-                  <strong>{slide.title}</strong>
+                  <small>{copy.serviceLabels[index][0]}</small>
+                  <strong>{copy.serviceLabels[index][1]}</strong>
                 </span>
                 <span className="timeline-step-line" aria-hidden="true">
                   {index < serviceSlides.length - 1 ? "→" : "✓"}
@@ -402,11 +500,11 @@ function App() {
 
         <section className="why-vietnam-section" id="why-vietnam" aria-labelledby="why-vietnam-title">
           <div className="why-vietnam-heading">
-            <p className="eyebrow">Why Vietnam</p>
+            <p className="eyebrow">{copy.whyEyebrow}</p>
             <h2 id="why-vietnam-title">
-              Care that leaves
+              {copy.whyTitle[0]}
               <br />
-              <span>room to breathe.</span>
+              <span>{copy.whyTitle[1]}</span>
             </h2>
           </div>
           <div className="why-vietnam-grid">
@@ -592,7 +690,7 @@ function App() {
           </div>
           <div className="contact-panel">
             <p className="eyebrow">Start a conversation</p>
-            <h2>Plan your care in Vietnam.</h2>
+            <h2>{copy.contactTitle}</h2>
             <p className="contact-prompt">
               {selectedSupport
                 ? `Tell us more about ${selectedSupport.toLowerCase()}.`
