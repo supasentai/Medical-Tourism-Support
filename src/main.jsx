@@ -312,6 +312,21 @@ function trackEvent(name, properties = {}) {
   window.dispatchEvent(new CustomEvent("medical-tourism:analytics", { detail: event }));
 }
 
+function formatSupportRequest(formData) {
+  const labels = [
+    ["Name", "name"],
+    ["Contact", "contact"],
+    ["Support needed", "support-type"],
+    ["Expected travel date", "travel-date"],
+    ["Estimated budget", "budget"],
+    ["Traveling with", "companions"],
+    ["Request", "support-request"],
+  ];
+  return labels
+    .map(([label, key]) => `${label}: ${formData.get(key) || "Not provided"}`)
+    .join("\n");
+}
+
 function LazyImage({ src, srcSet, sizes, alt, width, height, className = "" }) {
   const [isReady, setIsReady] = useState(false);
   const imageRef = useRef(null);
@@ -348,7 +363,7 @@ function LazyImage({ src, srcSet, sizes, alt, width, height, className = "" }) {
 
 function App() {
   const [activeVideo, setActiveVideo] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(null);
   const [selectedSupport, setSelectedSupport] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
@@ -377,10 +392,24 @@ function App() {
   };
   const submitConsultation = (event) => {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const summary = formatSupportRequest(formData);
+    const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL;
+    const subject = encodeURIComponent("Medical tourism support request");
+    const body = encodeURIComponent(summary);
+
+    if (supportEmail) {
+      window.location.href = `mailto:${supportEmail}?subject=${subject}&body=${body}`;
+    }
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(summary).catch(() => undefined);
+    }
     trackEvent("support_request_submitted", {
       supportType: selectedSupport || "general",
+      handoff: supportEmail ? "email-draft" : "copied-draft",
     });
-    setSubmitted(true);
+    setSubmitted({ summary, handoff: supportEmail ? "email-draft" : "copied-draft" });
   };
   const requestSupport = (slide) => {
     trackEvent("service_support_selected", {
@@ -996,8 +1025,17 @@ function App() {
             </div>
             {submitted ? (
               <div className="submit-success">
-                <strong>Your journey request has been received.</strong>
-                <span>We will be in touch with practical next steps.</span>
+                <strong>
+                  {submitted.handoff === "email-draft"
+                    ? "Your request draft is ready in your email app."
+                    : "Your request draft has been copied."}
+                </strong>
+                <span>
+                  {submitted.handoff === "email-draft"
+                    ? "Please send the draft to complete your request."
+                    : "Paste it into your preferred support channel to continue."}
+                </span>
+                <pre className="request-summary">{submitted.summary}</pre>
               </div>
             ) : (
               <form className="consult-form" onSubmit={submitConsultation}>
