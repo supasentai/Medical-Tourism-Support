@@ -370,6 +370,10 @@ function App() {
   const [language, setLanguage] = useState("en");
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const serviceModalRef = useRef(null);
+  const serviceCloseRef = useRef(null);
+  const videoModalRef = useRef(null);
+  const videoCloseRef = useRef(null);
   const [planner, setPlanner] = useState({
     support: "",
     timing: "",
@@ -381,6 +385,46 @@ function App() {
     document.body.classList.toggle("menu-is-open", isMenuOpen);
     return () => document.body.classList.remove("menu-is-open");
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const modal = selectedServiceDetail ? serviceModalRef.current : videoModalRef.current;
+    const closeButton = selectedServiceDetail ? serviceCloseRef.current : videoCloseRef.current;
+    if (!modal) return undefined;
+
+    const previouslyFocused = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const getFocusable = () =>
+      [...modal.querySelectorAll("button, a, input, select, textarea, [tabindex]:not([tabindex='-1'])")].filter(
+        (element) => !element.hasAttribute("disabled") && element.offsetParent !== null,
+      );
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setSelectedServiceDetail(null);
+        setActiveVideoModal(null);
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = getFocusable();
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    requestAnimationFrame(() => closeButton?.focus());
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previouslyFocused?.focus?.();
+    };
+  }, [selectedServiceDetail, activeVideoModal]);
 
   const scrollTo = (id) => {
     setIsMenuOpen(false);
@@ -1181,12 +1225,14 @@ function App() {
         >
           <section
             className="service-detail-modal"
+            ref={serviceModalRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="service-detail-title"
           >
             <button
               className="service-detail-close"
+              ref={serviceCloseRef}
               type="button"
               aria-label={copy.serviceClose}
               onClick={() => setSelectedServiceDetail(null)}
@@ -1226,12 +1272,14 @@ function App() {
         >
           <section
             className="video-modal"
+            ref={videoModalRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="video-modal-title"
           >
             <button
               className="video-modal-close"
+              ref={videoCloseRef}
               type="button"
               aria-label="Close video"
               onClick={() => setActiveVideoModal(null)}
