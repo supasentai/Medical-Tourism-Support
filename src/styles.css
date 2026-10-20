@@ -1686,6 +1686,11 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
+.field-control {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
 .consult-form input,
 .consult-form textarea,
 .consult-form select {
@@ -1738,6 +1743,18 @@ img {
   color: #e4a17f;
   font-size: 11px;
   line-height: 1.5;
+}
+.field-error {
+  display: block;
+  margin: -5px 0 0;
+  color: #e4a17f;
+  font-size: 10px;
+  line-height: 1.4;
+}
+.consult-form input[aria-invalid="true"],
+.consult-form select[aria-invalid="true"],
+.consult-form textarea[aria-invalid="true"] {
+  border-color: #e4a17f;
 }
 .sr-only {
   position: absolute;

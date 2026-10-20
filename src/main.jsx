@@ -500,6 +500,7 @@ function App() {
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
   const [formError, setFormError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
   const [activeSection, setActiveSection] = useState("about");
   const serviceModalRef = useRef(null);
   const serviceCloseRef = useRef(null);
@@ -601,19 +602,24 @@ function App() {
   const submitConsultation = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    const errors = {};
+    ["name", "support-type", "budget", "companions", "support-request"].forEach((field) => {
+      if (!String(formData.get(field) || "").trim()) errors[field] = "This field is required.";
+    });
     const contact = String(formData.get("contact") || "").trim();
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
     const isPhone = /^[+\d][\d\s().-]{6,}$/.test(contact);
-    if (!isEmail && !isPhone) {
-      setFormError("Please enter a valid email address or WhatsApp number.");
-      event.currentTarget.querySelector('[name="contact"]')?.focus();
+    if (!contact) errors.contact = "Email or WhatsApp is required.";
+    else if (!isEmail && !isPhone) errors.contact = "Enter a valid email or WhatsApp number.";
+    if (!formData.get("consent")) errors.consent = "Please agree before sending your request.";
+    if (Object.keys(errors).length) {
+      setFieldErrors(errors);
+      setFormError("Please review the highlighted fields.");
+      const firstError = Object.keys(errors)[0];
+      event.currentTarget.querySelector(`[name="${firstError}"]`)?.focus();
       return;
     }
-    if (!event.currentTarget.checkValidity()) {
-      setFormError("Please complete the required fields before sending your request.");
-      event.currentTarget.reportValidity();
-      return;
-    }
+    setFieldErrors({});
     setFormError("");
     const summary = formatSupportRequest(formData);
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL;
@@ -1350,81 +1356,85 @@ function App() {
               <form className="consult-form" onSubmit={submitConsultation} onFocus={trackFormStart} noValidate>
                 <h3>Tell us what you need</h3>
                 <div className="form-row">
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    aria-label="Name"
-                    name="name"
-                    autoComplete="name"
-                    required
-                  />
-                  <input
-                    type="text"
-                    inputMode="email"
-                    placeholder="Email or WhatsApp"
-                    aria-label="Email or WhatsApp"
-                    aria-describedby="contact-help"
-                    name="contact"
-                    autoComplete="email"
-                    required
-                  />
+                  <div className="field-control">
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      aria-label="Name"
+                      name="name"
+                      autoComplete="name"
+                      aria-invalid={Boolean(fieldErrors.name)}
+                      aria-describedby={fieldErrors.name ? "name-error" : undefined}
+                      required
+                    />
+                    {fieldErrors.name && <span className="field-error" id="name-error">{fieldErrors.name}</span>}
+                  </div>
+                  <div className="field-control">
+                    <input
+                      type="text"
+                      inputMode="email"
+                      placeholder="Email or WhatsApp"
+                      aria-label="Email or WhatsApp"
+                      name="contact"
+                      autoComplete="email"
+                      aria-invalid={Boolean(fieldErrors.contact)}
+                      aria-describedby={fieldErrors.contact ? "contact-error" : "contact-help"}
+                      required
+                    />
+                    {fieldErrors.contact && <span className="field-error" id="contact-error">{fieldErrors.contact}</span>}
+                  </div>
                 </div>
                 <div className="form-row">
-                  <label className="sr-only" htmlFor="support-type">
-                    Support needed
-                  </label>
-                  <select id="support-type" name="support-type" defaultValue="" required>
-                    <option value="" disabled>
-                      Support needed
-                    </option>
-                    <option value="care-options">Care options</option>
-                    <option value="arrival">Airport and arrival support</option>
-                    <option value="doctor-matching">Doctor matching</option>
-                    <option value="recovery">Recovery and nursing</option>
-                    <option value="full-journey">Full journey planning</option>
-                  </select>
-                  <label className="sr-only" htmlFor="travel-date">
-                    Expected travel date
-                  </label>
-                  <input
-                    id="travel-date"
-                    type="date"
-                    name="travel-date"
-                    aria-label="Expected travel date"
-                  />
+                  <div className="field-control">
+                    <label className="sr-only" htmlFor="support-type">Support needed</label>
+                    <select id="support-type" name="support-type" defaultValue="" aria-invalid={Boolean(fieldErrors["support-type"])} aria-describedby={fieldErrors["support-type"] ? "support-type-error" : undefined} required>
+                      <option value="" disabled>Support needed</option>
+                      <option value="care-options">Care options</option>
+                      <option value="arrival">Airport and arrival support</option>
+                      <option value="doctor-matching">Doctor matching</option>
+                      <option value="recovery">Recovery and nursing</option>
+                      <option value="full-journey">Full journey planning</option>
+                    </select>
+                    {fieldErrors["support-type"] && <span className="field-error" id="support-type-error">{fieldErrors["support-type"]}</span>}
+                  </div>
+                  <div className="field-control">
+                    <label className="sr-only" htmlFor="travel-date">Expected travel date</label>
+                    <input id="travel-date" type="date" name="travel-date" aria-label="Expected travel date" />
+                  </div>
                 </div>
                 <div className="form-row">
-                  <label className="sr-only" htmlFor="budget">
-                    Estimated budget
-                  </label>
-                  <select id="budget" name="budget" defaultValue="" required>
-                    <option value="" disabled>
-                      Estimated budget
-                    </option>
-                    <option value="planning">Still planning</option>
-                    <option value="under-3000">Under $3,000</option>
-                    <option value="3000-7000">$3,000 to $7,000</option>
-                    <option value="over-7000">Over $7,000</option>
-                  </select>
-                  <label className="sr-only" htmlFor="companions">
-                    Traveling with a companion
-                  </label>
-                  <select id="companions" name="companions" defaultValue="" required>
-                    <option value="" disabled>
-                      Traveling with a companion?
-                    </option>
-                    <option value="solo">Traveling solo</option>
-                    <option value="one-companion">One companion</option>
-                    <option value="group">Two or more companions</option>
-                  </select>
+                  <div className="field-control">
+                    <label className="sr-only" htmlFor="budget">Estimated budget</label>
+                    <select id="budget" name="budget" defaultValue="" aria-invalid={Boolean(fieldErrors.budget)} aria-describedby={fieldErrors.budget ? "budget-error" : undefined} required>
+                      <option value="" disabled>Estimated budget</option>
+                      <option value="planning">Still planning</option>
+                      <option value="under-3000">Under $3,000</option>
+                      <option value="3000-7000">$3,000 to $7,000</option>
+                      <option value="over-7000">Over $7,000</option>
+                    </select>
+                    {fieldErrors.budget && <span className="field-error" id="budget-error">{fieldErrors.budget}</span>}
+                  </div>
+                  <div className="field-control">
+                    <label className="sr-only" htmlFor="companions">Traveling with a companion</label>
+                    <select id="companions" name="companions" defaultValue="" aria-invalid={Boolean(fieldErrors.companions)} aria-describedby={fieldErrors.companions ? "companions-error" : undefined} required>
+                      <option value="" disabled>Traveling with a companion?</option>
+                      <option value="solo">Traveling solo</option>
+                      <option value="one-companion">One companion</option>
+                      <option value="group">Two or more companions</option>
+                    </select>
+                    {fieldErrors.companions && <span className="field-error" id="companions-error">{fieldErrors.companions}</span>}
+                  </div>
                 </div>
                 <textarea
                   placeholder="What kind of support are you looking for?"
                   aria-label="Support request"
                   name="support-request"
                   rows="3"
+                  aria-invalid={Boolean(fieldErrors["support-request"])}
+                  aria-describedby={fieldErrors["support-request"] ? "support-request-error" : undefined}
                   required
                 ></textarea>
+                {fieldErrors["support-request"] && <span className="field-error" id="support-request-error">{fieldErrors["support-request"]}</span>}
                 <p className="form-note">
                   Share only what you are comfortable discussing. We will reply
                   with practical next steps.
@@ -1434,9 +1444,10 @@ function App() {
                 </p>
                 {formError && <p className="form-error" role="alert">{formError}</p>}
                 <label className="agree">
-                  <input type="checkbox" required /> I agree to be contacted
+                  <input type="checkbox" name="consent" aria-invalid={Boolean(fieldErrors.consent)} aria-describedby={fieldErrors.consent ? "consent-error" : undefined} required /> I agree to be contacted
                   about my request.
                 </label>
+                {fieldErrors.consent && <span className="field-error" id="consent-error">{fieldErrors.consent}</span>}
                 <button type="submit">
                   Request support <Arrow />
                 </button>
