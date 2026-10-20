@@ -485,6 +485,8 @@ img {
 .service-story {
   min-height: 760px;
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 760px;
   display: grid;
   grid-template-columns: 42% 58%;
   align-items: center;
@@ -918,6 +920,8 @@ img {
 }
 .testimonial-section {
   display: grid;
+  content-visibility: auto;
+  contain-intrinsic-size: 650px;
   grid-template-columns: 42% 58%;
   min-height: 650px;
   background: #fff;
@@ -967,6 +971,8 @@ img {
 }
 .planner-section {
   display: grid;
+  content-visibility: auto;
+  contain-intrinsic-size: 620px;
   grid-template-columns: 40% 60%;
   gap: 8%;
   padding: 120px clamp(30px, 8vw, 130px);
@@ -1120,6 +1126,8 @@ img {
 .anti-aging-section {
   min-height: 860px;
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 860px;
   display: grid;
   grid-template-columns: 31% 31% 38%;
   align-items: center;
@@ -1212,6 +1220,8 @@ img {
 }
 .media-section {
   display: grid;
+  content-visibility: auto;
+  contain-intrinsic-size: 740px;
   grid-template-columns: 35% 65%;
   min-height: 740px;
   background: #f5f2ed;
@@ -1346,6 +1356,8 @@ img {
 }
 .faq-section {
   display: grid;
+  content-visibility: auto;
+  contain-intrinsic-size: 560px;
   grid-template-columns: 42% 58%;
   gap: 8%;
   padding: 125px clamp(30px, 9vw, 145px);
@@ -1407,6 +1419,8 @@ img {
 }
 .destinations-section {
   display: grid;
+  content-visibility: auto;
+  contain-intrinsic-size: 650px;
   grid-template-columns: 30% 70%;
   gap: 7%;
   padding: 120px clamp(30px, 8vw, 130px);
