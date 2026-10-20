@@ -237,6 +237,113 @@ const destinationDetails = [
   },
 ];
 
+const localizedContent = {
+  en: {
+    quickJump: ["Plan your care", "Explore support", "Choose a city", "Ask a question"],
+    antiEyebrow: "Medical tourism support in Vietnam",
+    antiTitle: ["Focus on your", "glow-up."],
+    antiCopy: "From your first question to your return home, we'll handle the rest.",
+    antiItems: [],
+    mediaEyebrow: "Vietnam, beyond the appointment",
+    mediaTitle: ["Prepare for the journey", "with confidence."],
+    mediaTabs: ["Destination notes", "Vietnam care guide", "Recovery guide"],
+    mediaCaptions: ["Vietnam landmarks to explore around your care journey", "What to expect from a medical journey in Vietnam", "How to plan rest and support after treatment"],
+    faqItems: [],
+    contactEyebrow: "Start a conversation",
+    contactPrompt: "Planning your trip? Send us a message to start!",
+    formTitle: "Tell us what you need",
+    name: "Name",
+    contact: "Email or WhatsApp",
+    support: "Support needed",
+    date: "Expected travel date",
+    budget: "Estimated budget",
+    companions: "Traveling with a companion?",
+    request: "What kind of support are you looking for?",
+    formNote: "Share only what you are comfortable discussing. We will reply with practical next steps.",
+    contactHelp: "Email address or WhatsApp number accepted.",
+    consent: "I agree to be contacted about my request.",
+    submit: "Request support",
+  },
+  vi: {
+    quickJump: ["Lập kế hoạch", "Khám phá hỗ trợ", "Chọn thành phố", "Đặt câu hỏi"],
+    antiEyebrow: "Hỗ trợ du lịch y tế tại Việt Nam",
+    antiTitle: ["Tập trung vào", "hành trình của bạn."],
+    antiCopy: "Từ câu hỏi đầu tiên đến khi bạn trở về nhà, chúng tôi hỗ trợ phần còn lại.",
+    antiItems: [["Thị thực nhanh", "Xử lý visa ưu tiên", "Xử lý nhanh chóng", "Từ 100 USD"], ["Đưa đón riêng", "Đưa đón 24/7", "Sân bay, khách sạn và bệnh viện", "Hỗ trợ 24/7"], ["Đặt khách sạn", "Lưu trú phù hợp", "Không gian thoải mái", "Từ 20 USD / đêm"], ["Kết nối bác sĩ", "Tìm chuyên gia phù hợp", "Kết nối trực tiếp với chuyên gia", "Theo nhu cầu của bạn"], ["Điều dưỡng tại nơi ở", "Chăm sóc nơi bạn lưu trú", "Chăm sóc vết thương chuyên nghiệp", "Theo thỏa thuận"], ["Lịch trình riêng", "Cân bằng hành trình", "Du lịch, điều trị và ẩm thực", "Thiết kế cho bạn"]],
+    mediaEyebrow: "Việt Nam, ngoài lịch hẹn",
+    mediaTitle: ["Chuẩn bị cho hành trình", "với sự tự tin."],
+    mediaTabs: ["Gợi ý điểm đến", "Cẩm nang chăm sóc", "Cẩm nang hồi phục"],
+    mediaCaptions: ["Các địa danh Việt Nam quanh hành trình chăm sóc", "Điều gì cần biết về hành trình y tế tại Việt Nam", "Lên kế hoạch nghỉ ngơi và hỗ trợ sau điều trị"],
+    faqItems: [["Bạn có thể hỗ trợ trước khi tôi đặt vé không?", "Có. Chúng tôi giúp bạn hình dung lựa chọn chăm sóc, thời gian, ngân sách và các chi tiết đến Việt Nam trước chuyến đi."], ["Tôi có cần chọn phòng khám trước không?", "Không. Hãy chia sẻ nhu cầu của bạn, chúng tôi sẽ giúp bạn hiểu các chuyên gia và môi trường chăm sóc phù hợp."], ["Người đi cùng có thể tham gia kế hoạch không?", "Tất nhiên. Lịch trình di chuyển, lưu trú và kế hoạch từng ngày có thể được thiết kế cho cả bệnh nhân và người đi cùng."]],
+    contactEyebrow: "Bắt đầu trao đổi",
+    contactPrompt: "Bạn đang lên kế hoạch? Hãy gửi tin nhắn để bắt đầu.",
+    formTitle: "Hãy cho chúng tôi biết nhu cầu của bạn",
+    name: "Họ tên",
+    contact: "Email hoặc WhatsApp",
+    support: "Nhu cầu hỗ trợ",
+    date: "Ngày dự kiến đi",
+    budget: "Ngân sách dự kiến",
+    companions: "Bạn đi cùng ai?",
+    request: "Bạn đang cần loại hỗ trợ nào?",
+    formNote: "Chỉ chia sẻ những điều bạn thấy thoải mái. Chúng tôi sẽ phản hồi với các bước thực tế.",
+    contactHelp: "Có thể nhập email hoặc số WhatsApp.",
+    consent: "Tôi đồng ý được liên hệ về yêu cầu này.",
+    submit: "Yêu cầu hỗ trợ",
+  },
+  ko: {
+    quickJump: ["케어 계획하기", "지원 살펴보기", "도시 선택하기", "질문하기"],
+    antiEyebrow: "베트남 의료관광 지원",
+    antiTitle: ["당신의 변화에", "집중하세요."],
+    antiCopy: "첫 질문부터 귀가할 때까지 필요한 실무를 함께 준비합니다.",
+    antiItems: [["비자 지원", "빠른 비자 발급", "신속한 처리", "100 USD부터"], ["개인 이동 지원", "24시간 이동 지원", "공항, 호텔, 병원 이동", "24시간 이용 가능"], ["호텔 예약", "맞춤형 숙박", "편안한 회복 공간", "1박 20 USD부터"], ["의료진 매칭", "전문의를 찾아보세요", "전문의와 직접 연결", "필요에 맞춘 매칭"], ["숙소 내 간호", "머무는 곳에서 케어", "전문 상처 관리", "협의 가능"], ["맞춤 일정", "여정의 균형", "여행, 치료와 식사 계획", "개인 맞춤 구성"]],
+    mediaEyebrow: "진료 외의 베트남",
+    mediaTitle: ["여정을 자신 있게", "준비하세요."],
+    mediaTabs: ["여행지 노트", "베트남 케어 가이드", "회복 가이드"],
+    mediaCaptions: ["케어 여정 주변에서 만나는 베트남 명소", "베트남 의료 여정에서 알아둘 점", "치료 후 휴식과 지원 계획하기"],
+    faqItems: [["항공권을 예약하기 전에도 도움을 받을 수 있나요?", "네. 출국 전 케어 옵션, 일정, 예산과 도착 세부사항을 함께 정리할 수 있습니다."], ["먼저 클리닉을 선택해야 하나요?", "아니요. 원하는 내용을 알려주시면 적합한 전문의와 케어 환경을 이해하도록 도와드립니다."], ["동행인도 계획에 참여할 수 있나요?", "물론입니다. 환자와 동행인을 위한 이동, 숙소와 일정도 함께 구성할 수 있습니다."]],
+    contactEyebrow: "상담 시작하기",
+    contactPrompt: "여행을 계획 중이신가요? 메시지를 보내 시작해 보세요.",
+    formTitle: "필요한 지원을 알려주세요",
+    name: "이름",
+    contact: "이메일 또는 WhatsApp",
+    support: "필요한 지원",
+    date: "예상 여행일",
+    budget: "예상 예산",
+    companions: "동행인이 있나요?",
+    request: "어떤 지원을 원하시나요?",
+    formNote: "편하게 공유할 수 있는 내용만 입력해 주세요. 실용적인 다음 단계를 안내해 드립니다.",
+    contactHelp: "이메일 또는 WhatsApp 번호를 입력할 수 있습니다.",
+    consent: "요청에 대해 연락받는 것에 동의합니다.",
+    submit: "지원 요청",
+  },
+  zh: {
+    quickJump: ["规划护理", "探索支持", "选择城市", "提出问题"],
+    antiEyebrow: "越南医疗旅游支持",
+    antiTitle: ["专注于您的", "焕新旅程。"],
+    antiCopy: "从第一个问题到回到家中，我们会协助您处理其余安排。",
+    antiItems: [["签证支持", "快速办理签证", "快速处理", "100 USD起"], ["私人接送", "全天候接送", "机场、酒店和医院接送", "全天候可用"], ["酒店预订", "量身安排住宿", "舒适的恢复空间", "每晚20 USD起"], ["医生匹配", "寻找合适的专科医生", "直接连接专科医生", "按您的需求匹配"], ["住宿内护理", "在住宿处获得照护", "专业伤口护理", "可协商安排"], ["定制行程", "平衡您的旅程", "旅行、治疗和用餐计划", "为您量身打造"]],
+    mediaEyebrow: "预约之外的越南",
+    mediaTitle: ["自信地准备", "这段旅程。"],
+    mediaTabs: ["目的地笔记", "越南护理指南", "恢复指南"],
+    mediaCaptions: ["护理旅程周边值得探索的越南地标", "越南医疗旅程需要了解什么", "规划治疗后的休息与支持"],
+    faqItems: [["预订机票前可以获得帮助吗？", "可以。我们可以在您出发前一起梳理护理选择、时间、预算和抵达安排。"], ["我需要先选择诊所吗？", "不需要。告诉我们您的需求，我们会帮助您了解合适的专科医生和护理环境。"], ["陪同者可以参与规划吗？", "当然可以。患者和陪同者的交通、住宿及每日计划都可以一起安排。"]],
+    contactEyebrow: "开始沟通",
+    contactPrompt: "正在规划旅程？发送消息即可开始。",
+    formTitle: "告诉我们您的需求",
+    name: "姓名",
+    contact: "邮箱或 WhatsApp",
+    support: "需要的支持",
+    date: "预计出行日期",
+    budget: "预计预算",
+    companions: "是否有陪同者？",
+    request: "您需要哪类支持？",
+    formNote: "只分享您愿意讨论的内容。我们会回复实用的下一步建议。",
+    contactHelp: "可填写邮箱地址或 WhatsApp 号码。",
+    consent: "我同意就此请求与我联系。",
+    submit: "申请支持",
+  },
+};
+
 const serviceSlides = [
   {
     number: "01",
@@ -424,6 +531,9 @@ const faqItems = [
   ],
 ];
 
+localizedContent.en.antiItems = antiAgingItems;
+localizedContent.en.faqItems = faqItems;
+
 function Arrow({ up = false }) {
   return (
     <span className={up ? "arrow arrow-up" : "arrow"} aria-hidden="true">
@@ -516,6 +626,7 @@ function App() {
   });
   const copy = languageCopy[language];
   const ui = interfaceCopy[language];
+  const content = localizedContent[language];
   const plannerFields = [planner.support, planner.timing, planner.travel];
   const plannerProgress = Math.round((plannerFields.filter(Boolean).length / plannerFields.length) * 100);
 
@@ -805,10 +916,10 @@ function App() {
 
         <nav className="quick-jump" aria-label="Quick journey navigation">
           <span>Explore quickly</span>
-          <button type="button" onClick={() => scrollTo("planner")}>Plan your care <Arrow /></button>
-          <button type="button" onClick={() => scrollTo("services")}>Explore support <Arrow /></button>
-          <button type="button" onClick={() => scrollTo("destinations")}>Choose a city <Arrow /></button>
-          <button type="button" onClick={() => scrollTo("contact")}>Ask a question <Arrow /></button>
+          <button type="button" onClick={() => scrollTo("planner")}>{content.quickJump[0]} <Arrow /></button>
+          <button type="button" onClick={() => scrollTo("services")}>{content.quickJump[1]} <Arrow /></button>
+          <button type="button" onClick={() => scrollTo("destinations")}>{content.quickJump[2]} <Arrow /></button>
+          <button type="button" onClick={() => scrollTo("contact")}>{content.quickJump[3]} <Arrow /></button>
         </nav>
 
         <div id="services" aria-label="Signature medical tourism support">
@@ -1110,16 +1221,13 @@ function App() {
 
         <section className="anti-aging-section" id="anti-aging">
           <div className="anti-aging-intro">
-            <p className="eyebrow">Medical tourism support in Vietnam</p>
+            <p className="eyebrow">{content.antiEyebrow}</p>
             <h2>
-              Focus on your
+              {content.antiTitle[0]}
               <br />
-              <span>glow-up.</span>
+              <span>{content.antiTitle[1]}</span>
             </h2>
-            <p>
-              From your first question to your return home, we'll handle the
-              rest.
-            </p>
+            <p>{content.antiCopy}</p>
           </div>
           <div className="anti-aging-visual">
             <img
@@ -1134,7 +1242,7 @@ function App() {
             />
           </div>
           <div className="anti-aging-list">
-            {antiAgingItems.map(([english, title, copy, detail]) => (
+            {content.antiItems.map(([english, title, copy, detail]) => (
               <button
                 type="button"
                 className="anti-item"
@@ -1155,11 +1263,11 @@ function App() {
 
         <section className="media-section" id="media">
           <div className="media-heading">
-            <p className="eyebrow">Vietnam, beyond the appointment</p>
+            <p className="eyebrow">{content.mediaEyebrow}</p>
             <h2>
-              Prepare for the journey
+              {content.mediaTitle[0]}
               <br />
-              <span>with confidence.</span>
+              <span>{content.mediaTitle[1]}</span>
             </h2>
             <div className="media-tabs">
               {videos.map(([label], index) => (
@@ -1169,7 +1277,7 @@ function App() {
                   key={label}
                   onClick={() => setActiveVideo(index)}
                 >
-                  {label}
+                  {content.mediaTabs[index] || label}
                 </button>
               ))}
             </div>
@@ -1179,7 +1287,7 @@ function App() {
               src={video[1]}
               srcSet={`${video[1].replace(".webp", "-mobile.webp")} 900w, ${video[1]} 1800w`}
               sizes="(max-width: 720px) 100vw, 58vw"
-              alt={video[2]}
+              alt={content.mediaCaptions[activeVideo] || video[2]}
               loading="lazy"
               width="1400"
               height="900"
@@ -1191,13 +1299,13 @@ function App() {
                 trackEvent("video_opened", { videoName: video[0] });
                 setActiveVideoModal(video);
               }}
-              aria-label={`Watch ${video[0]}`}
+              aria-label={`Watch ${content.mediaTabs[activeVideo] || video[0]}`}
             >
               ▶
             </button>
             <div className="media-caption">
               <span>Youtube</span>
-              <strong>{video[2]}</strong>
+              <strong>{content.mediaCaptions[activeVideo] || video[2]}</strong>
             </div>
           </div>
         </section>
@@ -1213,7 +1321,7 @@ function App() {
             <p>{ui.faqIntro}</p>
           </div>
           <div className="faq-list">
-            {faqItems.map(([question, answer]) => (
+            {content.faqItems.map(([question, answer]) => (
               <details
                 key={question}
                 onToggle={(event) => {
@@ -1295,25 +1403,25 @@ function App() {
               </div>
             )}
             <div className="address-block">
-              <p className="eyebrow">Destinations</p>
-              <h3>Vietnam care hubs</h3>
+            <p className="eyebrow">{ui.destinationEyebrow}</p>
+              <h3>{ui.destinationEyebrow}</h3>
               <p>
                 Ho Chi Minh City
                 <br />
                 Hanoi　Da Nang
               </p>
               <button type="button" onClick={() => scrollTo("contact")}>
-                Ask about destinations <Arrow />
+                {ui.askCity} <Arrow />
               </button>
             </div>
           </div>
           <div className="contact-panel">
-            <p className="eyebrow">Start a conversation</p>
+            <p className="eyebrow">{content.contactEyebrow}</p>
             <h2>{copy.contactTitle}</h2>
             <p className="contact-prompt">
               {selectedSupport
                 ? `Tell us more about ${selectedSupport.toLowerCase()}.`
-                : "Planning your trip? Send us a message to start!"}
+                : content.contactPrompt}
             </p>
             <div className="hours">
               <h3>Support availability</h3>
@@ -1354,13 +1462,13 @@ function App() {
               </div>
             ) : (
               <form className="consult-form" onSubmit={submitConsultation} onFocus={trackFormStart} noValidate>
-                <h3>Tell us what you need</h3>
+                <h3>{content.formTitle}</h3>
                 <div className="form-row">
                   <div className="field-control">
                     <input
                       type="text"
-                      placeholder="Name"
-                      aria-label="Name"
+                      placeholder={content.name}
+                      aria-label={content.name}
                       name="name"
                       autoComplete="name"
                       aria-invalid={Boolean(fieldErrors.name)}
@@ -1373,8 +1481,8 @@ function App() {
                     <input
                       type="text"
                       inputMode="email"
-                      placeholder="Email or WhatsApp"
-                      aria-label="Email or WhatsApp"
+                      placeholder={content.contact}
+                      aria-label={content.contact}
                       name="contact"
                       autoComplete="email"
                       aria-invalid={Boolean(fieldErrors.contact)}
@@ -1386,9 +1494,9 @@ function App() {
                 </div>
                 <div className="form-row">
                   <div className="field-control">
-                    <label className="sr-only" htmlFor="support-type">Support needed</label>
+                    <label className="sr-only" htmlFor="support-type">{content.support}</label>
                     <select id="support-type" name="support-type" defaultValue="" aria-invalid={Boolean(fieldErrors["support-type"])} aria-describedby={fieldErrors["support-type"] ? "support-type-error" : undefined} required>
-                      <option value="" disabled>Support needed</option>
+                      <option value="" disabled>{content.support}</option>
                       <option value="care-options">Care options</option>
                       <option value="arrival">Airport and arrival support</option>
                       <option value="doctor-matching">Doctor matching</option>
@@ -1398,15 +1506,15 @@ function App() {
                     {fieldErrors["support-type"] && <span className="field-error" id="support-type-error">{fieldErrors["support-type"]}</span>}
                   </div>
                   <div className="field-control">
-                    <label className="sr-only" htmlFor="travel-date">Expected travel date</label>
-                    <input id="travel-date" type="date" name="travel-date" aria-label="Expected travel date" />
+                    <label className="sr-only" htmlFor="travel-date">{content.date}</label>
+                    <input id="travel-date" type="date" name="travel-date" aria-label={content.date} />
                   </div>
                 </div>
                 <div className="form-row">
                   <div className="field-control">
-                    <label className="sr-only" htmlFor="budget">Estimated budget</label>
+                    <label className="sr-only" htmlFor="budget">{content.budget}</label>
                     <select id="budget" name="budget" defaultValue="" aria-invalid={Boolean(fieldErrors.budget)} aria-describedby={fieldErrors.budget ? "budget-error" : undefined} required>
-                      <option value="" disabled>Estimated budget</option>
+                      <option value="" disabled>{content.budget}</option>
                       <option value="planning">Still planning</option>
                       <option value="under-3000">Under $3,000</option>
                       <option value="3000-7000">$3,000 to $7,000</option>
@@ -1415,9 +1523,9 @@ function App() {
                     {fieldErrors.budget && <span className="field-error" id="budget-error">{fieldErrors.budget}</span>}
                   </div>
                   <div className="field-control">
-                    <label className="sr-only" htmlFor="companions">Traveling with a companion</label>
+                    <label className="sr-only" htmlFor="companions">{content.companions}</label>
                     <select id="companions" name="companions" defaultValue="" aria-invalid={Boolean(fieldErrors.companions)} aria-describedby={fieldErrors.companions ? "companions-error" : undefined} required>
-                      <option value="" disabled>Traveling with a companion?</option>
+                      <option value="" disabled>{content.companions}</option>
                       <option value="solo">Traveling solo</option>
                       <option value="one-companion">One companion</option>
                       <option value="group">Two or more companions</option>
@@ -1426,8 +1534,8 @@ function App() {
                   </div>
                 </div>
                 <textarea
-                  placeholder="What kind of support are you looking for?"
-                  aria-label="Support request"
+                  placeholder={content.request}
+                  aria-label={content.request}
                   name="support-request"
                   rows="3"
                   aria-invalid={Boolean(fieldErrors["support-request"])}
@@ -1436,20 +1544,18 @@ function App() {
                 ></textarea>
                 {fieldErrors["support-request"] && <span className="field-error" id="support-request-error">{fieldErrors["support-request"]}</span>}
                 <p className="form-note">
-                  Share only what you are comfortable discussing. We will reply
-                  with practical next steps.
+                  {content.formNote}
                 </p>
                 <p className="form-note" id="contact-help">
-                  Email address or WhatsApp number accepted.
+                  {content.contactHelp}
                 </p>
                 {formError && <p className="form-error" role="alert">{formError}</p>}
                 <label className="agree">
-                  <input type="checkbox" name="consent" aria-invalid={Boolean(fieldErrors.consent)} aria-describedby={fieldErrors.consent ? "consent-error" : undefined} required /> I agree to be contacted
-                  about my request.
+                  <input type="checkbox" name="consent" aria-invalid={Boolean(fieldErrors.consent)} aria-describedby={fieldErrors.consent ? "consent-error" : undefined} required /> {content.consent}
                 </label>
                 {fieldErrors.consent && <span className="field-error" id="consent-error">{fieldErrors.consent}</span>}
                 <button type="submit">
-                  Request support <Arrow />
+                  {content.submit} <Arrow />
                 </button>
               </form>
             )}
