@@ -714,28 +714,30 @@ function App() {
         <section className="testimonial-section" aria-labelledby="testimonial-title">
           <div className="testimonial-image">
             <img
-              src="/images/testimonial-placeholder.webp"
-              srcSet="/images/testimonial-placeholder-mobile.webp 900w, /images/testimonial-placeholder.webp 1800w"
+              src={images.clinic}
+              srcSet="/images/assist-mobile.webp 900w, /images/assist.webp 1800w"
               sizes="(max-width: 720px) 100vw, 42vw"
-              alt="Placeholder portrait for a future patient testimonial"
+              alt="A calm consultation with a medical tourism support team"
               loading="lazy"
               width="900"
               height="1200"
             />
           </div>
           <div className="testimonial-copy">
-            <p className="eyebrow">Sample testimonial</p>
+            <p className="eyebrow">Illustrative journey</p>
             <h2 id="testimonial-title">
               A calmer way
               <br />
               <span>to make a big decision.</span>
             </h2>
             <blockquote>
-              “The planning felt clear, calm and personal from my first message
-              to the day I flew home.”
+              “Good planning turns a complex trip into a sequence of clear,
+              manageable steps.”
             </blockquote>
             <p className="testimonial-placeholder">
-              Placeholder quote. Replace with an approved patient story before launch.
+              We use this space to explain the experience without presenting an
+              unverified patient story as a review. Ask us about your care
+              options, timing and recovery plan.
             </p>
           </div>
         </section>
