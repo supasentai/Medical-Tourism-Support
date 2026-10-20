@@ -807,6 +807,7 @@ function App() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#top">Skip to main content</a>
       <header className={`site-header ${isMenuOpen ? "menu-open" : ""}`}>
         <button
           className="brand-button"
@@ -851,7 +852,7 @@ function App() {
           onClick={() => setIsMenuOpen(false)}
         />
         <div className="header-actions">
-          <div className="language-switcher" aria-label="Choose language">
+          <div className="language-switcher" role="group" aria-label="Choose language">
             {languageOptions.map(([value, label]) => (
               <button
                 type="button"
@@ -859,7 +860,7 @@ function App() {
                 className={language === value ? "is-active" : ""}
                 onClick={() => changeLanguage(value)}
                 aria-label={`Change language to ${label}`}
-                aria-pressed={language === value}
+                aria-current={language === value ? "true" : undefined}
               >
                 {label}
               </button>
@@ -879,7 +880,7 @@ function App() {
         </div>
       </header>
 
-      <main id="top">
+      <main id="top" tabIndex={-1}>
         <section className="hero" id="about">
           <picture>
             <source media="(max-width: 720px)" srcSet="/images/hero-mobile.webp" />
@@ -1658,7 +1659,7 @@ function App() {
               className="video-modal-close"
               ref={videoCloseRef}
               type="button"
-              aria-label="Close video"
+              aria-label={copy.serviceClose}
               onClick={() => setActiveVideoModal(null)}
             >
               ×
