@@ -344,6 +344,12 @@ img {
 .hero h1 span {
   color: var(--gold-light);
 }
+/* Beauty Serif does not contain the full Vietnamese glyph set. Use a
+   complete system serif for Vietnamese hero copy so Đ/ă/ê/ơ/ư accents stay
+   aligned at display sizes while preserving the editorial treatment. */
+html[lang="vi"] .hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+}
 .hero-content > p:last-of-type {
   max-width: 420px;
   margin: 32px 0 34px;
