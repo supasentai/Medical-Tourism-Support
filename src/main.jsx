@@ -1626,6 +1626,26 @@ function App() {
           <Arrow up />
         </button>
       </div>
+      <div className="mobile-action-bar" aria-label="Quick actions">
+        <button
+          type="button"
+          onClick={() => {
+            trackEvent("mobile_cta_click", { action: "start-planning" });
+            scrollTo("planner");
+          }}
+        >
+          {copy.startPlanning} <Arrow />
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            trackEvent("mobile_cta_click", { action: "request-support" });
+            scrollTo("contact");
+          }}
+        >
+          {copy.serviceRequest} <Arrow />
+        </button>
+      </div>
     </div>
   );
 }

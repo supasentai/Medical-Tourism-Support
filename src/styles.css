@@ -1863,6 +1863,9 @@ img {
 .floating-tools .arrow-up {
   margin: 0;
 }
+.mobile-action-bar {
+  display: none;
+}
 .arrow {
   display: inline-block;
   margin-left: 8px;
@@ -2495,6 +2498,29 @@ button:hover .arrow {
   }
   .site-header.menu-open .menu-backdrop {
     inset: 68px 0 0;
+  }
+  .mobile-action-bar {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    z-index: 24;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(42, 32, 22, 0.94);
+    box-shadow: 0 14px 35px rgba(42, 32, 22, 0.22);
+  }
+  .mobile-action-bar button {
+    min-height: 42px;
+    padding: 9px 10px;
+    background: var(--gold);
+    color: #fff;
+    font-size: 10px;
+  }
+  .mobile-action-bar button:last-child {
+    background: #5a4a3b;
   }
 }
 @media (prefers-reduced-motion: reduce) {
