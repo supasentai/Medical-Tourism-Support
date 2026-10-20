@@ -499,6 +499,7 @@ function App() {
   const [language, setLanguage] = useState("en");
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const [formError, setFormError] = useState("");
   const serviceModalRef = useRef(null);
   const serviceCloseRef = useRef(null);
   const videoModalRef = useRef(null);
@@ -580,6 +581,20 @@ function App() {
   const submitConsultation = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    const contact = String(formData.get("contact") || "").trim();
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+    const isPhone = /^[+\d][\d\s().-]{6,}$/.test(contact);
+    if (!isEmail && !isPhone) {
+      setFormError("Please enter a valid email address or WhatsApp number.");
+      event.currentTarget.querySelector('[name="contact"]')?.focus();
+      return;
+    }
+    if (!event.currentTarget.checkValidity()) {
+      setFormError("Please complete the required fields before sending your request.");
+      event.currentTarget.reportValidity();
+      return;
+    }
+    setFormError("");
     const summary = formatSupportRequest(formData);
     const supportEmail = import.meta.env.VITE_SUPPORT_EMAIL;
     const subject = encodeURIComponent("Medical tourism support request");
@@ -1274,7 +1289,7 @@ function App() {
                 <pre className="request-summary">{submitted.summary}</pre>
               </div>
             ) : (
-              <form className="consult-form" onSubmit={submitConsultation}>
+              <form className="consult-form" onSubmit={submitConsultation} noValidate>
                 <h3>Tell us what you need</h3>
                 <div className="form-row">
                   <input
@@ -1286,9 +1301,11 @@ function App() {
                     required
                   />
                   <input
-                    type="email"
+                    type="text"
+                    inputMode="email"
                     placeholder="Email or WhatsApp"
                     aria-label="Email or WhatsApp"
+                    aria-describedby="contact-help"
                     name="contact"
                     autoComplete="email"
                     required
@@ -1354,6 +1371,10 @@ function App() {
                   Share only what you are comfortable discussing. We will reply
                   with practical next steps.
                 </p>
+                <p className="form-note" id="contact-help">
+                  Email address or WhatsApp number accepted.
+                </p>
+                {formError && <p className="form-error" role="alert">{formError}</p>}
                 <label className="agree">
                   <input type="checkbox" required /> I agree to be contacted
                   about my request.

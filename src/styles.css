@@ -1694,6 +1694,12 @@ img {
   font-size: 10px;
   line-height: 1.5;
 }
+.form-error {
+  margin: 10px 0 0;
+  color: #e4a17f;
+  font-size: 11px;
+  line-height: 1.5;
+}
 .sr-only {
   position: absolute;
   width: 1px;
