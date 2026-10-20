@@ -1673,6 +1673,7 @@ img {
 }
 .floating-tools a,
 .floating-tools button {
+  position: relative;
   width: 54px;
   height: 54px;
   display: grid;
@@ -1685,12 +1686,37 @@ img {
   font-size: 18px;
   box-shadow: 0 7px 20px rgba(57, 44, 29, 0.15);
 }
+.floating-tools button::after {
+  content: attr(data-label);
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  padding: 7px 9px;
+  transform: translateY(-50%) translateX(4px);
+  background: var(--brown);
+  color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 10px;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.floating-tools button:hover::after,
+.floating-tools button:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
 .floating-tools button:nth-child(2) {
   background: transparent;
   color: #2f2a24;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 25px;
   box-shadow: none;
+}
+.floating-tools .floating-top {
+  border: 1px solid rgba(47, 42, 36, 0.2);
 }
 .floating-tools .arrow-up {
   margin: 0;

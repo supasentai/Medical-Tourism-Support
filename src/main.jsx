@@ -1214,16 +1214,22 @@ function App() {
       </footer>
       <div className="floating-tools">
         <button
+          className="floating-support"
           type="button"
           onClick={() => scrollTo("contact")}
           aria-label="Request support"
+          data-label="Request support"
+          title="Request support"
         >
           ✦
         </button>
         <button
+          className="floating-top"
           type="button"
           onClick={() => scrollTo("top")}
           aria-label="Back to top"
+          data-label="Back to top"
+          title="Back to top"
         >
           <Arrow up />
         </button>
