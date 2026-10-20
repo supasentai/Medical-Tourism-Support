@@ -894,6 +894,28 @@ img {
   font-size: 13px;
   line-height: 1.75;
 }
+.trust-checkpoints {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 19px;
+  border-top: 1px solid rgba(122, 112, 101, 0.25);
+  color: #8d857d;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.trust-checkpoints span {
+  display: grid;
+  gap: 7px;
+}
+.trust-checkpoints strong {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+}
 .testimonial-section {
   display: grid;
   grid-template-columns: 42% 58%;
@@ -2314,6 +2336,9 @@ button:hover .arrow {
   }
   .care-trust-grid h3 {
     font-size: 21px;
+  }
+  .trust-checkpoints {
+    grid-template-columns: repeat(2, 1fr);
   }
   .why-vietnam-grid {
     gap: 0 18px;

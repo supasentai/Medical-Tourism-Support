@@ -1132,6 +1132,12 @@ function App() {
               <p>Coordination supports your journey; it never replaces medical advice.</p>
             </article>
           </div>
+          <div className="trust-checkpoints" aria-label="Trust checkpoints">
+            <span><strong>01</strong> Coordination only</span>
+            <span><strong>02</strong> No clinical promises</span>
+            <span><strong>03</strong> No passport or medical records in the form</span>
+            <span><strong>04</strong> Clinical decisions stay with licensed professionals</span>
+          </div>
         </section>
 
         <section className="testimonial-section" aria-labelledby="testimonial-title">
