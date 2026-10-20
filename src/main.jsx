@@ -40,6 +40,8 @@ const languageCopy = {
     trust: ["Private support", "Clear communication", "Vietnam care hubs", "Journey coordinator"],
     journey: ["Plan", "Match", "Arrive", "Treat", "Recover", "Follow up"],
     serviceCta: "VIEW MORE",
+    serviceClose: "Close service details",
+    serviceRequest: "Request this support",
     serviceLabels: [["Before you fly", "Plan with clarity"], ["Care matching", "Find the right care"], ["Arrival support", "Arrive with ease"], ["Interpretation", "Be understood"], ["Recovery stays", "Recover comfortably"], ["Follow-up care", "Stay supported"]],
     timelineEyebrow: "Your care journey",
     timelineTitle: ["One clear path,", "step by step."],
@@ -57,6 +59,8 @@ const languageCopy = {
     trust: ["Hỗ trợ riêng tư", "Giao tiếp rõ ràng", "3 trung tâm chăm sóc", "Điều phối viên riêng"],
     journey: ["Lên kế hoạch", "Kết nối", "Đến nơi", "Điều trị", "Hồi phục", "Theo dõi"],
     serviceCta: "XEM THÊM",
+    serviceClose: "Đóng chi tiết dịch vụ",
+    serviceRequest: "Yêu cầu hỗ trợ này",
     serviceLabels: [["Trước chuyến bay", "Lên kế hoạch rõ ràng"], ["Kết nối chăm sóc", "Chọn đúng dịch vụ"], ["Hỗ trợ khi đến", "Đến nơi nhẹ nhàng"], ["Thông dịch", "Được thấu hiểu"], ["Lưu trú hồi phục", "Hồi phục thoải mái"], ["Chăm sóc tiếp nối", "Luôn được đồng hành"]],
     timelineEyebrow: "Hành trình chăm sóc",
     timelineTitle: ["Một lộ trình rõ ràng,", "từng bước một."],
@@ -74,6 +78,8 @@ const languageCopy = {
     trust: ["맞춤 지원", "명확한 소통", "베트남 케어 허브", "전담 코디네이터"],
     journey: ["계획", "매칭", "도착", "치료", "회복", "후속 관리"],
     serviceCta: "자세히 보기",
+    serviceClose: "케어 상세 닫기",
+    serviceRequest: "이 지원 요청하기",
     serviceLabels: [["출국 전 준비", "명확하게 계획하기"], ["케어 매칭", "맞는 케어 찾기"], ["도착 지원", "편안하게 도착하기"], ["통역 지원", "정확하게 소통하기"], ["회복 숙박", "편안하게 회복하기"], ["후속 관리", "계속 지원받기"]],
     timelineEyebrow: "케어 여정",
     timelineTitle: ["명확한 한 가지 경로,", "단계별로."],
@@ -91,6 +97,8 @@ const languageCopy = {
     trust: ["私人支持", "清晰沟通", "越南护理中心", "专属协调员"],
     journey: ["规划", "匹配", "抵达", "治疗", "康复", "后续护理"],
     serviceCta: "查看更多",
+    serviceClose: "关闭服务详情",
+    serviceRequest: "申请此项支持",
     serviceLabels: [["出发前准备", "清晰规划"], ["护理匹配", "找到合适的护理"], ["抵达支持", "轻松抵达"], ["翻译支持", "顺畅沟通"], ["康复住宿", "舒适恢复"], ["后续护理", "持续支持"]],
     timelineEyebrow: "您的护理旅程",
     timelineTitle: ["一条清晰的路径，", "一步一步。"],
@@ -151,6 +159,63 @@ const serviceSlides = [
     details: ["Follow-up coordination", "Recovery questions organized", "Clear next steps after your return"],
   },
 ];
+
+const translatedServiceDetails = {
+  vi: [
+    {
+      eyebrow: "Trước chuyến bay",
+      title: "Lên kế hoạch rõ ràng",
+      copy: "Hiểu rõ lựa chọn chăm sóc, thời gian và ngân sách trước khi đặt chuyến bay đến Việt Nam.",
+      details: ["Lập kế hoạch thời gian và ngân sách", "Chuẩn bị câu hỏi trước chuyến đi", "Xác định bước tiếp theo rõ ràng"],
+    },
+    {
+      eyebrow: "Kết nối chăm sóc",
+      title: "Chọn đúng dịch vụ",
+      copy: "So sánh phòng khám, chuyên gia và kế hoạch điều trị để bạn đưa ra quyết định có đủ thông tin.",
+      details: ["So sánh chuyên gia và phòng khám", "Sắp xếp câu hỏi điều trị", "Tạo danh sách lựa chọn phù hợp"],
+    },
+    {
+      eyebrow: "Hỗ trợ khi đến",
+      title: "Đến nơi nhẹ nhàng",
+      copy: "Từ sân bay đến buổi hẹn đầu tiên, các chi tiết được điều phối theo lịch trình của bạn.",
+      details: ["Điều phối đón tại sân bay", "Kết nối xe đến khách sạn và bệnh viện", "Sắp xếp thời gian quanh lịch hẹn"],
+    },
+    {
+      eyebrow: "Thông dịch",
+      title: "Được thấu hiểu",
+      copy: "Hỗ trợ giao tiếp rõ ràng trước, trong và sau điều trị khi bạn cần.",
+      details: ["Hỗ trợ ngôn ngữ khi cần", "Chuẩn bị câu hỏi cho buổi hẹn", "Chia sẻ cập nhật thiết thực"],
+    },
+    {
+      eyebrow: "Lưu trú hồi phục",
+      title: "Hồi phục thoải mái",
+      copy: "Chọn nơi nghỉ ngơi yên tĩnh cùng hỗ trợ thiết thực giữa các buổi hẹn.",
+      details: ["Gợi ý nơi ở phù hợp hồi phục", "Điều dưỡng tại nơi lưu trú theo sắp xếp", "Điều phối di chuyển quanh thời gian nghỉ"],
+    },
+    {
+      eyebrow: "Chăm sóc tiếp nối",
+      title: "Luôn được đồng hành",
+      copy: "Hành trình vẫn tiếp tục sau khi bạn về nhà với điều phối theo dõi và bước tiếp theo rõ ràng.",
+      details: ["Điều phối chăm sóc sau chuyến đi", "Tổng hợp câu hỏi hồi phục", "Hướng dẫn bước tiếp theo sau khi về nhà"],
+    },
+  ],
+  ko: [
+    { eyebrow: "출국 전 준비", title: "명확하게 계획하기", copy: "비행기를 예약하기 전에 케어 옵션, 일정과 예산을 이해하세요.", details: ["케어 일정과 예산 계획", "출국 전 질문 준비", "첫 상담을 위한 다음 단계 정리"] },
+    { eyebrow: "케어 매칭", title: "맞는 케어 찾기", copy: "클리닉, 전문의와 치료 계획을 비교해 더 informed한 결정을 돕습니다.", details: ["전문의와 클리닉 비교", "치료 질문 정리", "논의할 수 있는 후보 정리"] },
+    { eyebrow: "도착 지원", title: "편안하게 도착하기", copy: "공항 픽업부터 첫 진료까지 일정에 맞춰 세부 사항을 조율합니다.", details: ["공항 픽업 조율", "호텔과 병원 이동 지원", "예약에 맞춘 도착 일정 계획"] },
+    { eyebrow: "통역 지원", title: "정확하게 소통하기", copy: "필요한 순간 치료 전후의 명확한 소통을 지원합니다.", details: ["필요 시 언어 지원", "진료 질문 준비", "실용적인 업데이트 공유"] },
+    { eyebrow: "회복 숙박", title: "편안하게 회복하기", copy: "진료 사이에 쉴 수 있는 차분한 공간과 실용적인 회복 지원을 찾습니다.", details: ["회복에 맞는 숙소 선택", "숙소 내 간호 지원 조율", "휴식 중심 이동 계획"] },
+    { eyebrow: "후속 관리", title: "계속 지원받기", copy: "귀국 후에도 후속 조율과 명확한 다음 단계로 여정을 이어갑니다.", details: ["후속 관리 조율", "회복 관련 질문 정리", "귀국 후 다음 단계 안내"] },
+  ],
+  zh: [
+    { eyebrow: "出发前准备", title: "清晰规划", copy: "在预订飞往越南的航班前，了解护理选择、时间和预算。", details: ["规划护理时间和预算", "出发前准备问题", "整理清晰的下一步"] },
+    { eyebrow: "护理匹配", title: "找到合适的护理", copy: "比较诊所、专科医生和治疗计划，帮助您做出充分了解后的决定。", details: ["比较专科医生和诊所", "整理治疗问题", "建立可讨论的候选方案"] },
+    { eyebrow: "抵达支持", title: "轻松抵达", copy: "从机场接送到第一次预约，我们会根据您的日程协调细节。", details: ["协调机场接送", "安排酒店和医院接送", "围绕预约规划抵达时间"] },
+    { eyebrow: "翻译支持", title: "顺畅沟通", copy: "在需要时，为治疗前、中、后的沟通提供支持。", details: ["按需提供语言支持", "准备预约问题", "清晰分享实用更新"] },
+    { eyebrow: "康复住宿", title: "舒适恢复", copy: "选择安静的休息空间，并在预约之间获得实用的恢复支持。", details: ["推荐适合恢复的住宿", "协调住宿内护理", "围绕休息安排交通"] },
+    { eyebrow: "后续护理", title: "持续支持", copy: "回家后仍可获得后续协调和清晰的下一步安排。", details: ["协调后续护理", "整理恢复问题", "回家后的下一步指导"] },
+  ],
+};
 
 const antiAgingItems = [
   ["Visa support", "Fast-track visas", "Quick processing", "From $100 USD"],
@@ -334,6 +399,14 @@ function App() {
     setPlanner((current) => ({ ...current, [field]: value }));
   };
   const video = videos[activeVideo];
+  const selectedDetailCopy = selectedServiceDetail
+    ? translatedServiceDetails[language]?.[selectedServiceDetail.index] || {
+        eyebrow: selectedServiceDetail.english,
+        title: selectedServiceDetail.title,
+        copy: selectedServiceDetail.copy,
+        details: selectedServiceDetail.details,
+      }
+    : null;
 
   return (
     <div className="site-shell">
@@ -486,9 +559,9 @@ function App() {
                   type="button"
                   onClick={() => {
                     trackEvent("service_detail_opened", { serviceNumber: slide.number });
-                    setSelectedServiceDetail(slide);
+                    setSelectedServiceDetail({ ...slide, index });
                   }}
-                  aria-label={`View details for ${slide.title}`}
+                  aria-label={`${copy.serviceCta}: ${copy.serviceLabels[index][1]}`}
                 >
                   <span className="round-link-label">{copy.serviceCta}</span>
                   <Arrow />
@@ -1037,16 +1110,16 @@ function App() {
             <button
               className="service-detail-close"
               type="button"
-              aria-label="Close service details"
+              aria-label={copy.serviceClose}
               onClick={() => setSelectedServiceDetail(null)}
             >
               ×
             </button>
-            <p className="eyebrow">{selectedServiceDetail.english}</p>
-            <h2 id="service-detail-title">{selectedServiceDetail.title}</h2>
-            <p>{selectedServiceDetail.copy}</p>
+            <p className="eyebrow">{selectedDetailCopy.eyebrow}</p>
+            <h2 id="service-detail-title">{selectedDetailCopy.title}</h2>
+            <p>{selectedDetailCopy.copy}</p>
             <ul>
-              {selectedServiceDetail.details.map((detail) => (
+              {selectedDetailCopy.details.map((detail) => (
                 <li key={detail}>{detail}</li>
               ))}
             </ul>
@@ -1059,7 +1132,7 @@ function App() {
                 requestSupport(detail);
               }}
             >
-              Request this support <Arrow />
+              {copy.serviceRequest} <Arrow />
             </button>
           </section>
         </div>
