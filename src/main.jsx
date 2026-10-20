@@ -512,6 +512,8 @@ function App() {
   });
   const copy = languageCopy[language];
   const ui = interfaceCopy[language];
+  const plannerFields = [planner.support, planner.timing, planner.travel];
+  const plannerProgress = Math.round((plannerFields.filter(Boolean).length / plannerFields.length) * 100);
 
   useEffect(() => {
     document.body.classList.toggle("menu-is-open", isMenuOpen);
@@ -976,6 +978,22 @@ function App() {
             <p>{ui.plannerIntro}</p>
           </div>
           <div className="planner-card">
+            <div className="planner-progress" aria-label={`Planner ${plannerProgress}% complete`}>
+              <div className="planner-progress-meta">
+                <small>Journey planner</small>
+                <span>{plannerProgress}% complete</span>
+              </div>
+              <div className="planner-progress-track" aria-hidden="true">
+                <span style={{ width: `${plannerProgress}%` }} />
+              </div>
+              <div className="planner-progress-steps" aria-hidden="true">
+                {['Support', 'Timing', 'Style'].map((step, index) => (
+                  <span className={plannerFields[index] ? "is-complete" : ""} key={step}>
+                    <i>{plannerFields[index] ? "✓" : index + 1}</i>{step}
+                  </span>
+                ))}
+              </div>
+            </div>
             <label>
               {ui.supportQuestion}
               <select value={planner.support} onChange={(event) => updatePlanner("support", event.target.value)}>
@@ -1010,6 +1028,7 @@ function App() {
               <span>{planner.timing || ui.timingFallback} · {planner.travel || ui.travelFallback}</span>
               <button
                 type="button"
+                className={plannerProgress === 100 ? "is-ready" : ""}
                 onClick={() => {
                   trackEvent("planner_continue_click", {
                     support: planner.support || "not-selected",
@@ -1018,7 +1037,7 @@ function App() {
                   scrollTo("contact");
                 }}
               >
-                {ui.continueSupport} <Arrow />
+                {plannerProgress === 100 ? ui.continueSupport : `Complete ${3 - plannerFields.filter(Boolean).length} more step${3 - plannerFields.filter(Boolean).length === 1 ? "" : "s"}`} <Arrow />
               </button>
             </div>
           </div>

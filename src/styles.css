@@ -937,6 +937,67 @@ img {
   gap: 17px;
   align-content: center;
 }
+.planner-progress {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+.planner-progress-meta,
+.planner-progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.planner-progress-meta {
+  color: var(--gold-light);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.planner-progress-meta span {
+  color: #c7bbae;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.planner-progress-track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.18);
+}
+.planner-progress-track span {
+  display: block;
+  height: 100%;
+  background: var(--gold-light);
+  transition: width 260ms ease;
+}
+.planner-progress-steps {
+  justify-content: flex-start;
+  gap: 20px;
+  color: #8f8478;
+  font-size: 10px;
+}
+.planner-progress-steps span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.planner-progress-steps i {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border: 1px solid #7e7163;
+  border-radius: 50%;
+  font-style: normal;
+  font-size: 9px;
+}
+.planner-progress-steps .is-complete {
+  color: #e5d6c3;
+}
+.planner-progress-steps .is-complete i {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
 .planner-card label {
   display: grid;
   gap: 8px;
@@ -990,6 +1051,10 @@ img {
   background: var(--gold);
   color: #fff;
   font-size: 12px;
+}
+.planner-summary button:not(.is-ready) {
+  background: #746252;
+  color: #d9cdbf;
 }
 .anti-aging-section {
   min-height: 860px;
