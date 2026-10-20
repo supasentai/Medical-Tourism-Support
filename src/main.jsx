@@ -216,6 +216,27 @@ const interfaceCopy = {
   },
 };
 
+const destinationDetails = [
+  {
+    city: "Ho Chi Minh City",
+    description: "Energetic, connected and practical for appointments.",
+    image: "/images/slide-03.webp",
+    details: ["Convenient airport and city transfers", "Wide choice of clinics and specialists", "Flexible dining and city options between appointments"],
+  },
+  {
+    city: "Hanoi",
+    description: "A slower cultural rhythm with calm spaces to reset.",
+    image: "/images/vietnam-care-guide.webp",
+    details: ["A quieter pace for planning and recovery", "Cultural spaces for gentle exploring", "Local coordination around your care schedule"],
+  },
+  {
+    city: "Da Nang",
+    description: "Coastal air, open space and an easy recovery pace.",
+    image: "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.webp",
+    details: ["Coastal surroundings for restorative stays", "Simple airport-to-hotel connections", "A balanced care and recovery itinerary"],
+  },
+];
+
 const serviceSlides = [
   {
     number: "01",
@@ -474,6 +495,7 @@ function App() {
   const [selectedSupport, setSelectedSupport] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState(null);
   const [language, setLanguage] = useState("en");
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
@@ -481,6 +503,8 @@ function App() {
   const serviceCloseRef = useRef(null);
   const videoModalRef = useRef(null);
   const videoCloseRef = useRef(null);
+  const destinationModalRef = useRef(null);
+  const destinationCloseRef = useRef(null);
   const [planner, setPlanner] = useState({
     support: "",
     timing: "",
@@ -495,8 +519,16 @@ function App() {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    const modal = selectedServiceDetail ? serviceModalRef.current : videoModalRef.current;
-    const closeButton = selectedServiceDetail ? serviceCloseRef.current : videoCloseRef.current;
+    const modal = selectedServiceDetail
+      ? serviceModalRef.current
+      : selectedDestination
+        ? destinationModalRef.current
+        : videoModalRef.current;
+    const closeButton = selectedServiceDetail
+      ? serviceCloseRef.current
+      : selectedDestination
+        ? destinationCloseRef.current
+        : videoCloseRef.current;
     if (!modal) return undefined;
 
     const previouslyFocused = document.activeElement;
@@ -509,6 +541,7 @@ function App() {
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
         setSelectedServiceDetail(null);
+        setSelectedDestination(null);
         setActiveVideoModal(null);
         return;
       }
@@ -532,7 +565,7 @@ function App() {
       document.body.style.overflow = previousOverflow;
       previouslyFocused?.focus?.();
     };
-  }, [selectedServiceDetail, activeVideoModal]);
+  }, [selectedServiceDetail, selectedDestination, activeVideoModal]);
 
   const scrollTo = (id) => {
     setIsMenuOpen(false);
@@ -1113,32 +1146,27 @@ function App() {
             <p>{ui.destinationIntro}</p>
           </div>
           <div className="destination-cards">
-            {[
-              ["Ho Chi Minh City", "Energetic, connected and practical for appointments.", "/images/slide-03.webp"],
-              ["Hanoi", "A slower cultural rhythm with calm spaces to reset.", "/images/vietnam-care-guide.webp"],
-              ["Da Nang", "Coastal air, open space and an easy recovery pace.", "/images/vecteezy_vietnam-famous-landmark-silhouette-recolored.webp"],
-            ].map(([city, description, image]) => (
-              <article className="destination-card" key={city}>
+            {destinationDetails.map((destination) => (
+              <article className="destination-card" key={destination.city}>
                 <div className="destination-card-image">
                   <img
-                    src={image}
-                    srcSet={`${image.replace(".webp", "-mobile.webp")} 900w, ${image} 1800w`}
+                    src={destination.image}
+                    srcSet={`${destination.image.replace(".webp", "-mobile.webp")} 900w, ${destination.image} 1800w`}
                     sizes="(max-width: 720px) 100vw, 30vw"
-                    alt={`${city} destination support`}
+                    alt={`${destination.city} destination support`}
                     loading="lazy"
                     width="900"
                     height="650"
                   />
                 </div>
                 <div className="destination-card-copy">
-                  <h3>{city}</h3>
-                  <p>{description}</p>
+                  <h3>{destination.city}</h3>
+                  <p>{destination.description}</p>
                   <button
                     type="button"
                     onClick={() => {
-                      trackEvent("destination_interest", { destination: city });
-                      setSelectedSupport(`${city} destination planning`);
-                      scrollTo("contact");
+                      trackEvent("destination_detail_opened", { destination: destination.city });
+                      setSelectedDestination(destination);
                     }}
                   >
                     {ui.askCity} <Arrow />
@@ -1400,6 +1428,56 @@ function App() {
               ></iframe>
             </div>
             <h2 id="video-modal-title">{activeVideoModal[2]}</h2>
+          </section>
+        </div>
+      )}
+
+      {selectedDestination && (
+        <div
+          className="service-detail-backdrop"
+          role="presentation"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setSelectedDestination(null);
+          }}
+        >
+          <section
+            className="service-detail-modal destination-detail-modal"
+            ref={destinationModalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="destination-detail-title"
+          >
+            <button
+              className="service-detail-close"
+              ref={destinationCloseRef}
+              type="button"
+              aria-label="Close destination details"
+              onClick={() => setSelectedDestination(null)}
+            >
+              ×
+            </button>
+            <img src={selectedDestination.image} alt="" />
+            <p className="eyebrow">{ui.destinationEyebrow}</p>
+            <h2 id="destination-detail-title">{selectedDestination.city}</h2>
+            <p>{selectedDestination.description}</p>
+            <ul>
+              {selectedDestination.details.map((detail) => (
+                <li key={detail}>{detail}</li>
+              ))}
+            </ul>
+            <button
+              className="modal-cta"
+              type="button"
+              onClick={() => {
+                const destination = selectedDestination.city;
+                trackEvent("destination_interest", { destination });
+                setSelectedDestination(null);
+                setSelectedSupport(`${destination} destination planning`);
+                scrollTo("contact");
+              }}
+            >
+              {ui.askCity} <Arrow />
+            </button>
           </section>
         </div>
       )}
