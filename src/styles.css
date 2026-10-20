@@ -1371,9 +1371,8 @@ img {
   filter: grayscale(0.25) saturate(0.75);
 }
 .map-placeholder {
-  display: grid;
+  position: relative;
   min-height: 670px;
-  place-items: center;
   padding: 48px;
   background:
     linear-gradient(135deg, rgba(201, 149, 74, 0.17), transparent 52%),
@@ -1382,7 +1381,14 @@ img {
   text-align: center;
 }
 .map-placeholder > div {
+  position: absolute;
+  top: 50%;
+  right: clamp(24px, 8vw, 120px);
+  transform: translateY(-50%);
   max-width: 280px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  text-align: center;
 }
 .map-placeholder .eyebrow {
   display: block;
@@ -1404,6 +1410,7 @@ img {
 }
 .address-block {
   position: absolute;
+  z-index: 3;
   left: clamp(26px, 6vw, 92px);
   bottom: 36px;
   padding: 20px 24px;
