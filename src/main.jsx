@@ -857,8 +857,11 @@ function App() {
           <div className="philosophy-art">
             <img
               src={images.clinic}
+              srcSet="/images/assist-mobile.webp 900w, /images/assist.webp 1800w"
+              sizes="(max-width: 720px) 100vw, 42vw"
               alt="A warm consultation space in Vietnam"
               loading="lazy"
+              decoding="async"
               width="1200"
               height="900"
             />
@@ -999,6 +1002,7 @@ function App() {
               sizes="(max-width: 720px) 100vw, 42vw"
               alt="A calm consultation with a medical tourism support team"
               loading="lazy"
+              decoding="async"
               width="900"
               height="1200"
             />
@@ -1114,8 +1118,11 @@ function App() {
           <div className="anti-aging-visual">
             <img
               src={images.antiAging}
+              srcSet="/images/assist-mobile.webp 900w, /images/assist.webp 1800w"
+              sizes="(max-width: 720px) 100vw, 31vw"
               alt="A consultation and care planning moment in Vietnam"
               loading="lazy"
+              decoding="async"
               width="1200"
               height="1000"
             />
