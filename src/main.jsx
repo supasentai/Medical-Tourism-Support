@@ -547,6 +547,12 @@ function trackEvent(name, properties = {}) {
   const event = { event: name, ...properties };
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(event);
+  if (typeof window.gtag === "function") {
+    window.gtag("event", name, properties);
+  }
+  if (typeof window.fbq === "function") {
+    window.fbq("trackCustom", name, properties);
+  }
   window.dispatchEvent(new CustomEvent("medical-tourism:analytics", { detail: event }));
 }
 
@@ -634,6 +640,23 @@ function App() {
     document.body.classList.toggle("menu-is-open", isMenuOpen);
     return () => document.body.classList.remove("menu-is-open");
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+    if (!measurementId || document.querySelector(`script[data-ga-id="${measurementId}"]`)) return undefined;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, { send_page_view: true });
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    script.dataset.gaId = measurementId;
+    document.head.appendChild(script);
+    return undefined;
+  }, []);
 
   useEffect(() => {
     const sections = navItems
