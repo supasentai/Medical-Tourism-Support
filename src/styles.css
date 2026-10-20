@@ -1821,9 +1821,35 @@ button:hover .arrow {
   }
   .journey-rail {
     top: 76px;
+    position: sticky;
     justify-content: flex-start;
     overflow-x: auto;
+    padding-right: 48px;
+    scroll-padding-inline: 24px;
+    scroll-snap-type: x proximity;
+    isolation: isolate;
     scrollbar-width: none;
+  }
+  .journey-rail::before,
+  .journey-rail::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 28px;
+    pointer-events: none;
+  }
+  .journey-rail::before {
+    left: 0;
+    background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0));
+  }
+  .journey-rail::after {
+    right: 0;
+    background: linear-gradient(270deg, #fff, rgba(255, 255, 255, 0));
+  }
+  .journey-rail button {
+    scroll-snap-align: start;
   }
   .journey-rail::-webkit-scrollbar {
     display: none;
