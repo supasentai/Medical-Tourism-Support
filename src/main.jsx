@@ -711,6 +711,44 @@ function App() {
           </div>
         </section>
 
+        <section className="care-trust-section" aria-labelledby="care-trust-title">
+          <div className="care-trust-intro">
+            <p className="eyebrow">Before you decide</p>
+            <h2 id="care-trust-title">
+              Clear support,
+              <br />
+              <span>carefully framed.</span>
+            </h2>
+            <p>
+              Medical tourism is a personal decision. We help you organize the
+              practical details while keeping clinical decisions with licensed
+              professionals.
+            </p>
+          </div>
+          <div className="care-trust-grid">
+            <article>
+              <span>01</span>
+              <h3>Transparent coordination</h3>
+              <p>Understand what each step includes before you commit to a plan.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Language-aware support</h3>
+              <p>Keep questions, appointments and local logistics easier to follow.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Privacy-minded planning</h3>
+              <p>Share only the information needed to start a safe conversation.</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>Medical boundaries</h3>
+              <p>Coordination supports your journey; it never replaces medical advice.</p>
+            </article>
+          </div>
+        </section>
+
         <section className="testimonial-section" aria-labelledby="testimonial-title">
           <div className="testimonial-image">
             <img

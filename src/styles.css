@@ -797,6 +797,64 @@ img {
   font-size: 13px;
   line-height: 1.75;
 }
+.care-trust-section {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  gap: 7%;
+  padding: 112px clamp(30px, 8vw, 130px);
+  background: #f4f0ea;
+}
+.care-trust-intro h2 {
+  margin: 0;
+  color: #817b74;
+  font-family: var(--serif);
+  font-size: clamp(48px, 5vw, 76px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+}
+.care-trust-intro h2 span {
+  color: var(--gold);
+}
+.care-trust-intro > p:last-child {
+  max-width: 350px;
+  margin-top: 28px;
+  color: #8f877f;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.care-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 34px;
+}
+.care-trust-grid article {
+  padding: 25px 0 30px;
+  border-top: 1px solid rgba(122, 112, 101, 0.25);
+}
+.care-trust-grid article:nth-child(-n + 2) {
+  border-top: 0;
+  padding-top: 0;
+}
+.care-trust-grid span {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 25px;
+}
+.care-trust-grid h3 {
+  margin: 16px 0 9px;
+  color: #514a43;
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 400;
+}
+.care-trust-grid p {
+  max-width: 260px;
+  margin: 0;
+  color: #96908a;
+  font-size: 13px;
+  line-height: 1.75;
+}
 .testimonial-section {
   display: grid;
   grid-template-columns: 42% 58%;
@@ -1907,6 +1965,11 @@ button:hover .arrow {
     gap: 45px;
     padding: 90px 9vw;
   }
+  .care-trust-section {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding: 90px 9vw;
+  }
   .testimonial-section {
     grid-template-columns: 1fr 1fr;
     min-height: 520px;
@@ -2103,6 +2166,17 @@ button:hover .arrow {
   .why-vietnam-section {
     gap: 32px;
     padding: 72px 24px;
+  }
+  .care-trust-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 72px 24px;
+  }
+  .care-trust-grid {
+    gap: 0 18px;
+  }
+  .care-trust-grid h3 {
+    font-size: 21px;
   }
   .why-vietnam-grid {
     gap: 0 18px;
