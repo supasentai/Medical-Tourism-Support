@@ -500,6 +500,7 @@ function App() {
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
   const [formError, setFormError] = useState("");
+  const [activeSection, setActiveSection] = useState("about");
   const serviceModalRef = useRef(null);
   const serviceCloseRef = useRef(null);
   const videoModalRef = useRef(null);
@@ -520,6 +521,24 @@ function App() {
     document.body.classList.toggle("menu-is-open", isMenuOpen);
     return () => document.body.classList.remove("menu-is-open");
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const sections = navItems
+      .map(([, id]) => document.getElementById(id))
+      .filter(Boolean);
+    if (!sections.length || !("IntersectionObserver" in window)) return undefined;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActiveSection(visible[0].target.id);
+      },
+      { rootMargin: "-20% 0px -62% 0px", threshold: [0.1, 0.35, 0.7] },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const modal = selectedServiceDetail
@@ -666,7 +685,13 @@ function App() {
         </button>
         <nav className="main-nav" aria-label="Main navigation">
           {navItems.map(([, target], index) => (
-            <button type="button" key={target} onClick={() => scrollTo(target)}>
+            <button
+              type="button"
+              key={target}
+              className={activeSection === target ? "is-active" : ""}
+              aria-current={activeSection === target ? "location" : undefined}
+              onClick={() => scrollTo(target)}
+            >
               {copy.nav[index]}
             </button>
           ))}

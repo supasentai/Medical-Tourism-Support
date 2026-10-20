@@ -164,6 +164,12 @@ img {
 .main-nav button:hover::after {
   transform: scaleX(1);
 }
+.main-nav button.is-active {
+  color: var(--gold);
+}
+.main-nav button.is-active::after {
+  transform: scaleX(1);
+}
 .mobile-menu-toggle {
   display: none;
   width: 34px;
