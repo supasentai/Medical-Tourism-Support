@@ -109,6 +109,113 @@ const languageCopy = {
   },
 };
 
+const interfaceCopy = {
+  en: {
+    plannerEyebrow: "Plan your first step",
+    plannerTitle: ["Shape a journey", "that fits you."],
+    plannerIntro: "Choose a few starting points and we will help turn them into a practical conversation.",
+    supportQuestion: "What support do you need?",
+    chooseSupport: "Choose one",
+    timingQuestion: "When are you thinking of traveling?",
+    chooseTiming: "Choose a timeframe",
+    travelQuestion: "What should the trip feel like?",
+    chooseTravel: "Choose a style",
+    planLabel: "Your starting plan",
+    supportFallback: "Support to be chosen",
+    timingFallback: "Timing to be chosen",
+    travelFallback: "Travel style to be chosen",
+    continueSupport: "Continue to support",
+    faqEyebrow: "Before you book",
+    faqTitle: ["Start with a", "clear answer."],
+    faqIntro: "A few practical answers before you decide whether Vietnam is the right next step for your care journey.",
+    destinationEyebrow: "Vietnam care hubs",
+    destinationTitle: ["Choose your", "base."],
+    destinationIntro: "Each city offers a different rhythm for treatment, recovery and the time around it.",
+    askCity: "Ask about this city",
+    mapEyebrow: "Vietnam care hubs",
+    mapIntro: "Load the interactive map when you are ready to explore.",
+    loadMap: "Load interactive map",
+  },
+  vi: {
+    plannerEyebrow: "Bắt đầu kế hoạch",
+    plannerTitle: ["Tạo hành trình", "phù hợp với bạn."],
+    plannerIntro: "Chọn vài nhu cầu ban đầu, chúng tôi sẽ giúp bạn biến chúng thành kế hoạch thực tế.",
+    supportQuestion: "Bạn cần hỗ trợ gì?",
+    chooseSupport: "Chọn một mục",
+    timingQuestion: "Bạn dự định đi khi nào?",
+    chooseTiming: "Chọn khung thời gian",
+    travelQuestion: "Bạn muốn chuyến đi có nhịp độ thế nào?",
+    chooseTravel: "Chọn phong cách",
+    planLabel: "Kế hoạch ban đầu",
+    supportFallback: "Chưa chọn nhu cầu",
+    timingFallback: "Chưa chọn thời gian",
+    travelFallback: "Chưa chọn phong cách",
+    continueSupport: "Tiếp tục nhận hỗ trợ",
+    faqEyebrow: "Trước khi đặt lịch",
+    faqTitle: ["Bắt đầu bằng", "một câu trả lời rõ ràng."],
+    faqIntro: "Một vài thông tin thực tế trước khi bạn quyết định Việt Nam có phải bước tiếp theo phù hợp không.",
+    destinationEyebrow: "Các trung tâm chăm sóc tại Việt Nam",
+    destinationTitle: ["Chọn", "điểm dừng."],
+    destinationIntro: "Mỗi thành phố mang đến một nhịp độ khác nhau cho điều trị, hồi phục và thời gian nghỉ ngơi.",
+    askCity: "Hỏi về thành phố này",
+    mapEyebrow: "Các trung tâm chăm sóc",
+    mapIntro: "Mở bản đồ tương tác khi bạn muốn khám phá thêm.",
+    loadMap: "Mở bản đồ tương tác",
+  },
+  ko: {
+    plannerEyebrow: "첫 단계 계획하기",
+    plannerTitle: ["나에게 맞는", "여정을 만들어 보세요."],
+    plannerIntro: "몇 가지 시작점을 선택하면 실용적인 상담으로 이어 드립니다.",
+    supportQuestion: "어떤 지원이 필요하신가요?",
+    chooseSupport: "선택하세요",
+    timingQuestion: "언제 여행을 생각하고 계신가요?",
+    chooseTiming: "기간을 선택하세요",
+    travelQuestion: "여행의 분위기는 어떠면 좋을까요?",
+    chooseTravel: "스타일을 선택하세요",
+    planLabel: "현재 계획",
+    supportFallback: "지원 항목을 선택하세요",
+    timingFallback: "일정을 선택하세요",
+    travelFallback: "여행 스타일을 선택하세요",
+    continueSupport: "지원 상담 계속하기",
+    faqEyebrow: "예약 전 확인",
+    faqTitle: ["명확한 답변으로", "시작하세요."],
+    faqIntro: "베트남이 다음 치료 여정에 적합한지 결정하기 전 알아두면 좋은 내용입니다.",
+    destinationEyebrow: "베트남 케어 허브",
+    destinationTitle: ["나에게 맞는", "도시를 선택하세요."],
+    destinationIntro: "각 도시는 치료와 회복, 여행에 서로 다른 리듬을 제공합니다.",
+    askCity: "이 도시 상담하기",
+    mapEyebrow: "베트남 케어 허브",
+    mapIntro: "더 알아보고 싶을 때 인터랙티브 지도를 열어 보세요.",
+    loadMap: "인터랙티브 지도 열기",
+  },
+  zh: {
+    plannerEyebrow: "规划第一步",
+    plannerTitle: ["打造适合您的", "旅程。"],
+    plannerIntro: "选择几个起点，我们会帮助您把它们整理成实际可行的沟通计划。",
+    supportQuestion: "您需要什么支持？",
+    chooseSupport: "请选择",
+    timingQuestion: "您计划什么时候出行？",
+    chooseTiming: "选择时间范围",
+    travelQuestion: "您希望旅程是什么节奏？",
+    chooseTravel: "选择风格",
+    planLabel: "您的初步计划",
+    supportFallback: "待选择支持内容",
+    timingFallback: "待选择时间",
+    travelFallback: "待选择旅行风格",
+    continueSupport: "继续获取支持",
+    faqEyebrow: "预订前了解",
+    faqTitle: ["从一个", "清晰的答案开始。"],
+    faqIntro: "在决定越南是否适合您的护理旅程前，先了解一些实用信息。",
+    destinationEyebrow: "越南护理中心",
+    destinationTitle: ["选择您的", "落脚城市。"],
+    destinationIntro: "每座城市都为治疗、恢复和旅程安排提供不同的节奏。",
+    askCity: "咨询这座城市",
+    mapEyebrow: "越南护理中心",
+    mapIntro: "准备探索时，可以打开互动地图。",
+    loadMap: "打开互动地图",
+  },
+};
+
 const serviceSlides = [
   {
     number: "01",
@@ -380,6 +487,7 @@ function App() {
     travel: "",
   });
   const copy = languageCopy[language];
+  const ui = interfaceCopy[language];
 
   useEffect(() => {
     document.body.classList.toggle("menu-is-open", isMenuOpen);
@@ -826,19 +934,19 @@ function App() {
 
         <section className="planner-section" id="planner" aria-labelledby="planner-title">
           <div className="planner-intro">
-            <p className="eyebrow">Plan your first step</p>
+            <p className="eyebrow">{ui.plannerEyebrow}</p>
             <h2 id="planner-title">
-              Shape a journey
+              {ui.plannerTitle[0]}
               <br />
-              <span>that fits you.</span>
+              <span>{ui.plannerTitle[1]}</span>
             </h2>
-            <p>Choose a few starting points and we will help turn them into a practical conversation.</p>
+            <p>{ui.plannerIntro}</p>
           </div>
           <div className="planner-card">
             <label>
-              What support do you need?
+              {ui.supportQuestion}
               <select value={planner.support} onChange={(event) => updatePlanner("support", event.target.value)}>
-                <option value="">Choose one</option>
+                <option value="">{ui.chooseSupport}</option>
                 <option value="Care options">Care options</option>
                 <option value="Arrival support">Arrival support</option>
                 <option value="Recovery care">Recovery care</option>
@@ -846,27 +954,27 @@ function App() {
               </select>
             </label>
             <label>
-              When are you thinking of traveling?
+              {ui.timingQuestion}
               <select value={planner.timing} onChange={(event) => updatePlanner("timing", event.target.value)}>
-                <option value="">Choose a timeframe</option>
+                <option value="">{ui.chooseTiming}</option>
                 <option value="Within the next 3 months">Within the next 3 months</option>
                 <option value="In 3 to 6 months">In 3 to 6 months</option>
                 <option value="Still exploring">Still exploring</option>
               </select>
             </label>
             <label>
-              What should the trip feel like?
+              {ui.travelQuestion}
               <select value={planner.travel} onChange={(event) => updatePlanner("travel", event.target.value)}>
-                <option value="">Choose a style</option>
+                <option value="">{ui.chooseTravel}</option>
                 <option value="Calm and recovery-led">Calm and recovery-led</option>
                 <option value="Balanced care and exploring">Balanced care and exploring</option>
                 <option value="Care-focused and efficient">Care-focused and efficient</option>
               </select>
             </label>
             <div className="planner-summary" aria-live="polite">
-              <small>Your starting plan</small>
-              <strong>{planner.support || "Support to be chosen"}</strong>
-              <span>{planner.timing || "Timing to be chosen"} · {planner.travel || "Travel style to be chosen"}</span>
+              <small>{ui.planLabel}</small>
+              <strong>{planner.support || ui.supportFallback}</strong>
+              <span>{planner.timing || ui.timingFallback} · {planner.travel || ui.travelFallback}</span>
               <button
                 type="button"
                 onClick={() => {
@@ -877,7 +985,7 @@ function App() {
                   scrollTo("contact");
                 }}
               >
-                Continue to support <Arrow />
+                {ui.continueSupport} <Arrow />
               </button>
             </div>
           </div>
@@ -976,16 +1084,13 @@ function App() {
 
         <section className="faq-section" aria-labelledby="faq-title">
           <div className="faq-intro">
-            <p className="eyebrow">Before you book</p>
+            <p className="eyebrow">{ui.faqEyebrow}</p>
             <h2 id="faq-title">
-              Start with a
+              {ui.faqTitle[0]}
               <br />
-              <span>clear answer.</span>
+              <span>{ui.faqTitle[1]}</span>
             </h2>
-            <p>
-              A few practical answers before you decide whether Vietnam is the
-              right next step for your care journey.
-            </p>
+            <p>{ui.faqIntro}</p>
           </div>
           <div className="faq-list">
             {faqItems.map(([question, answer]) => (
@@ -999,13 +1104,13 @@ function App() {
 
         <section className="destinations-section" id="destinations" aria-labelledby="destinations-title">
           <div className="destinations-heading">
-            <p className="eyebrow">Vietnam care hubs</p>
+            <p className="eyebrow">{ui.destinationEyebrow}</p>
             <h2 id="destinations-title">
-              Choose your
+              {ui.destinationTitle[0]}
               <br />
-              <span>base.</span>
+              <span>{ui.destinationTitle[1]}</span>
             </h2>
-            <p>Each city offers a different rhythm for treatment, recovery and the time around it.</p>
+            <p>{ui.destinationIntro}</p>
           </div>
           <div className="destination-cards">
             {[
@@ -1036,7 +1141,7 @@ function App() {
                       scrollTo("contact");
                     }}
                   >
-                    Ask about this city <Arrow />
+                    {ui.askCity} <Arrow />
                   </button>
                 </div>
               </article>
@@ -1055,10 +1160,10 @@ function App() {
             ) : (
               <div className="map-placeholder">
                 <div>
-                  <span className="eyebrow">Vietnam care hubs</span>
-                  <p>Load the interactive map when you are ready to explore.</p>
+                  <span className="eyebrow">{ui.mapEyebrow}</span>
+                  <p>{ui.mapIntro}</p>
                   <button type="button" onClick={() => setIsMapLoaded(true)}>
-                    Load interactive map <Arrow />
+                    {ui.loadMap} <Arrow />
                   </button>
                 </div>
               </div>
