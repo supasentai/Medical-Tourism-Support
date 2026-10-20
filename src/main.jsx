@@ -297,6 +297,11 @@ function App() {
   });
   const copy = languageCopy[language];
 
+  useEffect(() => {
+    document.body.classList.toggle("menu-is-open", isMenuOpen);
+    return () => document.body.classList.remove("menu-is-open");
+  }, [isMenuOpen]);
+
   const scrollTo = (id) => {
     setIsMenuOpen(false);
     if (id === "top") {
@@ -362,6 +367,13 @@ function App() {
             </button>
           ))}
         </nav>
+        <button
+          className="menu-backdrop"
+          type="button"
+          aria-label="Close navigation menu"
+          tabIndex={-1}
+          onClick={() => setIsMenuOpen(false)}
+        />
         <div className="header-actions">
           <div className="language-switcher" aria-label="Choose language">
             {languageOptions.map(([value, label]) => (
