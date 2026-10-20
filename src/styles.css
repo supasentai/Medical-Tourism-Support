@@ -419,6 +419,39 @@ img {
   font-size: 11px;
   letter-spacing: 0.04em;
 }
+.quick-jump {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 42px);
+  padding: 19px clamp(30px, 8vw, 130px);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.quick-jump::-webkit-scrollbar {
+  display: none;
+}
+.quick-jump > span {
+  color: #a59b91;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.quick-jump button {
+  padding: 0;
+  background: transparent;
+  color: #70685f;
+  font-size: 11px;
+}
+.quick-jump button:hover,
+.quick-jump button:focus-visible {
+  color: var(--gold);
+}
+.quick-jump .arrow {
+  font-size: 12px;
+}
 .journey-rail {
   position: sticky;
   top: 86px;

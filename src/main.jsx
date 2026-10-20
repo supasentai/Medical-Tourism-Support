@@ -797,6 +797,14 @@ function App() {
           </div>
         </section>
 
+        <nav className="quick-jump" aria-label="Quick journey navigation">
+          <span>Explore quickly</span>
+          <button type="button" onClick={() => scrollTo("planner")}>Plan your care <Arrow /></button>
+          <button type="button" onClick={() => scrollTo("services")}>Explore support <Arrow /></button>
+          <button type="button" onClick={() => scrollTo("destinations")}>Choose a city <Arrow /></button>
+          <button type="button" onClick={() => scrollTo("contact")}>Ask a question <Arrow /></button>
+        </nav>
+
         <div id="services" aria-label="Signature medical tourism support">
           <nav className="journey-rail" aria-label="Care journey steps">
             {journeySteps.map(([number, , target], index) => (
