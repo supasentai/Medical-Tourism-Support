@@ -1983,20 +1983,25 @@ button:hover .arrow {
     font-size: 178px;
   }
   .story-copy {
-    width: 88%;
-    margin-left: 8%;
+    z-index: 3;
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    padding: 22px 18px 28px;
+    background: rgba(255, 255, 255, 0.88);
   }
   .story-copy h2 {
-    font-size: 58px;
+    font-size: 48px;
+    line-height: 1;
   }
   .story-description {
     max-width: 280px;
     font-size: 15px;
   }
   .story-image-wrap {
-    top: 27%;
-    width: 76%;
-    height: 40%;
+    top: 34%;
+    width: 82%;
+    height: 34%;
+    opacity: 0.28;
   }
   .round-link {
     width: 82px;
