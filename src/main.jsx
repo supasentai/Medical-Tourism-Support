@@ -507,6 +507,7 @@ function App() {
   const videoCloseRef = useRef(null);
   const destinationModalRef = useRef(null);
   const destinationCloseRef = useRef(null);
+  const formStartTracked = useRef(false);
   const [planner, setPlanner] = useState({
     support: "",
     timing: "",
@@ -646,7 +647,13 @@ function App() {
     document.documentElement.lang = nextLanguage;
   };
   const updatePlanner = (field, value) => {
+    trackEvent("planner_field_selected", { field, value: value || "not-selected" });
     setPlanner((current) => ({ ...current, [field]: value }));
+  };
+  const trackFormStart = () => {
+    if (formStartTracked.current) return;
+    formStartTracked.current = true;
+    trackEvent("support_form_started", { selectedSupport: selectedSupport || "general" });
   };
   const video = videos[activeVideo];
   const selectedDetailCopy = selectedServiceDetail
@@ -1186,7 +1193,12 @@ function App() {
           </div>
           <div className="faq-list">
             {faqItems.map(([question, answer]) => (
-              <details key={question}>
+              <details
+                key={question}
+                onToggle={(event) => {
+                  if (event.currentTarget.open) trackEvent("faq_opened", { question });
+                }}
+              >
                 <summary>{question}</summary>
                 <p>{answer}</p>
               </details>
@@ -1249,7 +1261,13 @@ function App() {
                 <div>
                   <span className="eyebrow">{ui.mapEyebrow}</span>
                   <p>{ui.mapIntro}</p>
-                  <button type="button" onClick={() => setIsMapLoaded(true)}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      trackEvent("map_loaded", { destination: "Vietnam" });
+                      setIsMapLoaded(true);
+                    }}
+                  >
                     {ui.loadMap} <Arrow />
                   </button>
                 </div>
@@ -1314,7 +1332,7 @@ function App() {
                 <pre className="request-summary">{submitted.summary}</pre>
               </div>
             ) : (
-              <form className="consult-form" onSubmit={submitConsultation} noValidate>
+              <form className="consult-form" onSubmit={submitConsultation} onFocus={trackFormStart} noValidate>
                 <h3>Tell us what you need</h3>
                 <div className="form-row">
                   <input
