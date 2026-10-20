@@ -506,7 +506,7 @@ function App() {
               type="button"
               onClick={() => {
                 trackEvent("start_planning_click", { location: "hero" });
-                scrollTo("services");
+                scrollTo("planner");
               }}
             >
               <span className="circle-cta-label">{copy.heroCta}</span>
